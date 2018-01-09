@@ -8,9 +8,11 @@
     </header>
     <?php barre_Navigation(3); //__FILE__?>
 <div class="formulaire">
-    <form action="data-processing.php" method="post">
-        <label>Identifiant</label><br/>
-        <input type="text" name="identifiant"><br/>
+
+    <form action="testInscription.php" method="post">
+
+        <label>Pseudo</label><br/>
+        <input type="text" name="pseudo"><br/>
 
         <label>Email</label><br/>
         <input type="email" name="email"/><br/>
@@ -25,7 +27,7 @@
 
         <label>Conditions générales</label> : <input type="checkbox"/><br/>
 
-        <input type="submit" name="action" value="mailer"/><br/>
+        <input type="submit" name="action" value="Valider"/><br/>
 
     </form>
 </div>

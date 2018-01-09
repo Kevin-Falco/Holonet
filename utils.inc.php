@@ -1,4 +1,6 @@
 <?php
+
+    session_start();
     function debut_page()
     {
 ?>
@@ -49,10 +51,25 @@
                 <?php if($pageActive == 2)echo 'class=active"';?>
                 > Page 2 </a >
 
-                <a href="connexion.php" id="connectButton"
-                <?php if($pageActive == 3) echo 'class="active"'; ?>
-                >Connexion</a>
-                
+                <?php
+                if($_SESSION['login'] == null)
+                {
+                ?>
+
+                    <a href="connexion.php" id="connectButton"
+                    <?php if($pageActive == 3) echo 'class="active"'; ?>
+                    >Connexion</a>
+
+                    <?php
+                }
+                else
+                {
+                    echo '<a href="connexion.php" id="connectButton">Déconnexion</a>';
+                }
+
+                ?>
+
+
                 <a href="javascript:void(0);" class="icon" onclick="doAResponsiveToolbar()">&#9776;</a>
             </div>
         </nav>
