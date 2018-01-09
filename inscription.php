@@ -7,30 +7,32 @@
         <!-- Vide -->
     </header>
     <?php barre_Navigation(3); //__FILE__?>
-<div class="formulaire">
+    <label class="titre">Inscription</label>
 
-    <form action="testInscription.php" method="post">
+    <div class="formulaire">
 
-        <label>Pseudo</label><br/>
-        <input type="text" name="pseudo"><br/>
+        <form action="testInscription.php" method="post">
 
-        <label>Email</label><br/>
-        <input type="email" name="email"/><br/>
+            <label>Pseudo</label><br/>
+            <input type="text" name="pseudo"><br/>
 
-
-        <label>Mot de passe</label><br/>
-        <input type="password" name="mdp"/><br/>
+            <label>Email</label><br/>
+            <input type="email" name="email"/><br/>
 
 
-        <label>Vérification mot de passe</label><br/>
-        <input type="password" name="verifmdp"/><br/>
+            <label>Mot de passe</label><br/>
+            <input type="password" name="mdp"/><br/>
 
-        <label>Conditions générales</label> : <input type="checkbox"/><br/>
 
-        <input type="submit" name="action" value="Valider"/><br/>
+            <label>Vérification mot de passe</label><br/>
+            <input type="password" name="verifmdp"/><br/>
 
-    </form>
-</div>
+            <label>Conditions générales</label> : <input type="checkbox"/><br/>
+
+            <input type="submit" name="action" value="Valider"/><br/>
+
+        </form>
+    </div>
 <?php
     fin_page();
 ?>
