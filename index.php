@@ -1,12 +1,20 @@
 <?php
     include 'utils.inc.php';
 
+    session_start();
     debut_page();
 ?>
     <header>
         <!-- Vide -->
     </header>
     <?php barre_Navigation(0); //__FILE__?>
+
+    <?php
+        if($_SESSION['login'] == 'ok')
+        {
+            echo 'Magecraft : ' . $_SESSION['pseudo'];
+        }
+    ?>
     <div class="container-fluid">
         <p><?= 'Mettre du texte à la place des balises br. PS : le bootstrap c\'est bien et normalement le site est responsive (pour l\'instant)'?></p>
         <div class="row">
