@@ -29,4 +29,34 @@
     {
         echo '</body>';
     }
+
+    function barre_Navigation($pageActive)
+    {
+?>
+        <nav>
+            <div class="navbar" id="myNavbar">
+
+                //Javascript pour savoir la page, mettre classe Passive/Active
+                <a href="index.php"
+                <?php if($pageActive == 0) echo'class="active"'; ?>
+                echo'>Accueil</a>';
+
+                <a href = "page1.php"
+                <?php if($pageActive == 1)echo 'class=active"'; ?>
+                > Page 1 </a >
+
+                <a href = "page2.php"
+                <?php if($pageActive == 2)echo 'class=active"';?>
+                > Page 2 </a >
+
+                <a href="connexion.php" id="connectButton"
+                <?php if($pageActive == 3) echo 'class="active"'; ?>
+                >Connexion</a>
+                
+                <a href="javascript:void(0);" class="icon" onclick="doAResponsiveToolbar()">&#9776;</a>
+            </div>
+        </nav>
+
+<?php
+    }
 ?>
