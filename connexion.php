@@ -19,6 +19,7 @@
         <input type="submit" name="action" value="mailer"/>Se connecter<br/>
 
     </form>
+    <a href="mdp_oublie.php">Mot de passe oublié ?</a>
 
 <?php
     fin_page();
