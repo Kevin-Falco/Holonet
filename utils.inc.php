@@ -60,7 +60,7 @@
                     <?php if($pageActive == 3) echo 'class="active"'; ?>
                     >Connexion</a>
 
-                    <?php
+                <?php
                 }
                 else
                 {

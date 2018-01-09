@@ -16,7 +16,6 @@
     $dbPass = 'kyloben';
 
     $dbBd = 'bestsithever_holocron';
-
 ?>
 
 <?php

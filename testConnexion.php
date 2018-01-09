@@ -59,7 +59,8 @@
                     }
                     else
                     {
-                        echo '<label>Adresse mail non validée.</label>';
+                        fin_page();
+                        header('Location: connexion.php?step=VALIDATION');
                     }
                 }
                 else
