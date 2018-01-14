@@ -14,3 +14,6 @@
     <label>Vérification effectuée √</label><br/>
     <a href="index.php">Retourner à l'accueil</a>
 
+<?php
+    fin_page();
+?>
