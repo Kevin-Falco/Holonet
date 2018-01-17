@@ -2,7 +2,6 @@
     include 'utils.inc.php';
 
     session_start();
-    debut_page();
 ?>
 
 <?php
@@ -18,7 +17,6 @@
     $dbPass = 'kyloben';
 
     $dbBd = 'bestsithever_holocron';
-
 ?>
 
 <?php
@@ -54,12 +52,10 @@
                         $_SESSION['login'] = 'ok';
                         $_SESSION['pseudo'] = $pseudo;
                         $_SESSION['mdp'] = md5($mdp);
-                        fin_page();
                         header('Location: index.php');
                     }
                     else
                     {
-                        fin_page();
                         header('Location: connexion.php?step=VALIDATION');
                     }
                 }
@@ -69,10 +65,7 @@
                     header('Location: connexion.php?step=ERROR');
                 }
             }
-
-
         }
     }
 
-    fin_page();
 ?>

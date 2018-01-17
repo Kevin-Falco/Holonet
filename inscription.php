@@ -7,6 +7,11 @@
     {
         echo 'Erreur, e-mail déjà utilisé.';
     }
+
+    else if($_GET['step'] == 'BAD_MDP')
+    {
+        echo 'Mot de passes non identiques.';
+    }
 ?>
     <header>
         <!-- Vide -->
