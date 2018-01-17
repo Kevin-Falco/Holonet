@@ -5,7 +5,7 @@
 
     if ($_GET['step'] == 'ERROR')
     {
-        echo 'Erreur de connexion, veuillez réessayer';
+        echo 'Erreur d\'email ou de mot de passe.';
     }
     else if ($_GET['step'] == 'VALIDATION')
     {

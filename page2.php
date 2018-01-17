@@ -1,6 +1,8 @@
 <?php
     include 'utils.inc.php';
 
+    session_start();
+
     debut_page();
 ?>
 
