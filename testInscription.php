@@ -2,7 +2,6 @@
     include 'utils.inc.php';
 
     session_start();
-    debut_page();
 ?>
 
 <?php
@@ -29,6 +28,7 @@
 
     if($action == 'Valider')
     {
+        if($verifmdp != $mdp) header('Location: inscription.php?step=BAD_MDP');
 
         $dbLink = mysqli_connect($dbHost, $dbLogin, $dbPass)
         or die('Erreur de connexion dans la base : ' . mysqli_error($dbLink));
@@ -71,15 +71,13 @@
         {
             $message = 'Voici le code pour finaliser votre inscription : ' . PHP_EOL;
             $message .= $code . PHP_EOL;
-            mail($email, "Code d\'activation",$message);
+            mail($email, "Code d'activation",$message);
 
             $_SESSION['pseudo'] = $pseudo;
             $_SESSION['email'] = $email;
             $_SESSION['mdp'] = md5($mdp);
-            fin_page();
             header('Location: validationInscription.php');
         }
     }
 
-    fin_page();
 ?>

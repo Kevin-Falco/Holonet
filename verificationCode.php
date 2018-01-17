@@ -2,7 +2,6 @@
     include 'utils.inc.php';
 
     session_start();
-    debut_page();
 ?>
 
 <?php
@@ -48,18 +47,15 @@
                 {
                     $_SESSION['login'] = 'ok';
 
-                    $query = 'UPDATE validater set 1 WHERE email = ' . '\'' . $email . '\'';
-                    fin_page();
-                    header('Location: index.php');
+                    $query = 'UPDATE valider set 1 WHERE email = ' . '\'' . $email . '\'';
+                    header('Location: verifCodeOk.php');
                 }
                 else
                 {
-                    fin_page();
                     header('Location: validationInscription.php?step=ERROR');
                 }
             }
         }
     }
 
-    fin_page();
 ?>
