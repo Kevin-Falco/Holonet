@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="dccb4566-9862-42ae-a9be-e37765e9a0b9" name="SSH" url="http://ssh-bestsithever.alwaysdata.net">
+        <fileTransfer host="ssh-bestsithever.alwaysdata.net" port="22" rootFolder="/home/bestsithever" accessType="SFTP">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" />
+          </advancedOptions>
+          <option name="port" value="22" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

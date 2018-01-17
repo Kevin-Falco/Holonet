@@ -4,11 +4,24 @@
     session_start();
     debut_page();
 
-    if ($_GET['step'] == 'EMAIL_EXIST')
+    if ($_GET['step'] == 'ERROR_VERIF')
     {
         echo 'Erreur dans les mots de passe, veuillez réessayer.';
     }
+    else if ($_GET['step'] == 'ERROR_ANCIEN')
+    {
+        echo 'Erreur, votre nouveau mot de passe ne peut pas être l\'ancien.';
+    }
+    else if ($_GET['step'] == 'MDP_INCORRECT')
+    {
+        echo 'Erreur dans l\'ancien mot de passe, veuillez réessayer.';
+    }
+
 ?>
+    <header>
+
+    </header>
+    <?php barre_Navigation(3);?>
 
     <div class="formulaire">
 

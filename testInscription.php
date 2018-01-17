@@ -1,10 +1,6 @@
 <?php
-    include 'utils.inc.php';
-
     session_start();
-?>
 
-<?php
     $pseudo= $_POST['pseudo'];
     $email= $_POST['email'];
     $mdp= $_POST['mdp'];
