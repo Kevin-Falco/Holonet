@@ -28,7 +28,7 @@
         mysqli_select_db($dbLink, $dbBd)
         or die('Erreur dans la sélection de la base : ' . mysqli_error($dbLink));
 
-        $query = 'SELECT code FROM user WHERE pseudo = ' . '\'' . $_SESSION['pseudo'] . '\'';
+        $query = 'SELECT code FROM user WHERE email = ' . '\'' . $_SESSION['email'] . '\'';
 
         if(!$dbResult = mysqli_query($dbLink, $query))
         {
@@ -47,6 +47,8 @@
                 if ($code == $dbRow['code'])
                 {
                     $_SESSION['login'] = 'ok';
+
+                    $query = 'UPDATE validater set 1 WHERE email = ' . '\'' . $email . '\'';
                     fin_page();
                     header('Location: index.php');
                 }

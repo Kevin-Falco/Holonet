@@ -22,8 +22,8 @@
 +
     <form action="testConnexion.php" method="post">
 
-        <label>Pseudo</label><br/>
-        <input type="text" name="pseudo"><br/>
+        <label>Email</label><br/>
+        <input type="text" name="email"><br/>
 
         <label>Mot de passe</label><br/>
         <input type="password" name="mdp"/><br/>
@@ -32,6 +32,7 @@
 
     </form>
     <a href="mdp_oublie.php">Mot de passe oublié ?</a>
+    <a href="inscription.php">S'inscrire</a>
 
 <?php
     fin_page();

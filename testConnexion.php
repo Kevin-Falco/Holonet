@@ -6,7 +6,7 @@
 ?>
 
 <?php
-    $pseudo= $_POST['pseudo'];
+    $email= $_POST['email'];
     $mdp= $_POST['mdp'];
 
 
@@ -31,7 +31,7 @@
         mysqli_select_db($dbLink, $dbBd)
         or die('Erreur dans la sélection de la base : ' . mysqli_error($dbLink));
 
-        $query = 'SELECT motdepasse FROM user WHERE pseudo = ' . '\'' . $pseudo . '\'';
+        $query = 'SELECT * FROM user WHERE email = ' . '\'' . $email . '\'';
 
         if(!$dbResult = mysqli_query($dbLink, $query))
         {
@@ -47,13 +47,13 @@
         {
             if($dbRow = mysqli_fetch_assoc($dbResult))
             {
-                if ($mdp == $dbRow['motdepasse'])
+                if (md5($mdp) == $dbRow['motdepasse'])
                 {
                     if($dbRow['valider'])
                     {
                         $_SESSION['login'] = 'ok';
                         $_SESSION['pseudo'] = $pseudo;
-                        $_SESSION['mdp'] = $mdp;
+                        $_SESSION['mdp'] = md5($mdp);
                         fin_page();
                         header('Location: index.php');
                     }

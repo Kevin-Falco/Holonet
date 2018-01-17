@@ -64,7 +64,7 @@
                 }
                 else
                 {
-                    echo '<a href="connexion.php" id="connectButton">Déconnexion</a>';
+                    echo '<a href="deconnexion.php" id="connectButton">Déconnexion</a>';
                 }
 
                 ?>
