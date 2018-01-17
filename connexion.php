@@ -19,7 +19,8 @@
     <?php barre_Navigation(3); //__FILE__?>
 
     <label class="titre">Connexion</label>
-+
+
+
     <form action="testConnexion.php" method="post">
 
         <label>Email</label><br/>

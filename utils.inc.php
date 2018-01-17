@@ -64,7 +64,11 @@
                 }
                 else
                 {
-                    echo '<a href="deconnexion.php" id="connectButton">Déconnexion</a>';
+                ?>
+                    <a href="profil.php" id="connectButton"
+                    <?php if($pageActive == 3) echo 'class="active"' ?>
+                    >Profil</a>
+                <?php
                 }
 
                 ?>

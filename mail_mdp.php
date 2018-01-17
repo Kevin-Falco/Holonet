@@ -1,41 +1,66 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: h16005719
- * Date: 09/01/18
- * Time: 11:22
- */
-$a_z = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
-$mdp = '0'.$a_z[rand(0,51)].rand(0,9).rand(0,9).$a_z[rand(0,51)].rand(0,9).rand(0,9).$a_z[rand(0,51)].rand(0,9);
-mail($_POST['email'], 'Mot de passe oublié', ' voici votre nouveau mot de passe : '.$mdp);
+    session_start();
 
-if($dbRow = mysqli_fetch_assoc($dbResult))
-{
-    if ($mdp == $dbRow['motdepasse'])
+    $a_z = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    $mdp = '0'.$a_z[rand(0,51)].rand(0,9).rand(0,9).$a_z[rand(0,51)].rand(0,9).rand(0,9).$a_z[rand(0,51)].rand(0,9);
+    $email= $_POST['email'];
+    $message= ' voici votre nouveau mot de passe : '.$mdp;
+
+    $action = $_POST['action'];
+
+
+    $dbHost = 'mysql-bestsithever.alwaysdata.net';
+    $dbLogin = '149556_holoadmin';
+    $dbPass = 'kyloben';
+
+    $dbBd = 'bestsithever_holocron';
+?>
+
+<?php
+
+    if($action == 'mailer')
     {
-        $_SESSION['login'] = 'ok';
-        $_SESSION['identifiant'] = $identifiant;
-        $_SESSION['mdp'] = $mdp;
+        $dbLink = mysqli_connect($dbHost, $dbLogin, $dbPass)
+        or die('Erreur de connexion dans la base : ' . mysqli_error($dbLink));
 
-        $query = 'UPDATE user set nombreconnexions = nombreconnexions + 1 WHERE identifiant = ' . '\'' . $identifiant . '\'';
+        mysqli_select_db($dbLink, $dbBd)
+        or die('Erreur dans la sélection de la base : ' . mysqli_error($dbLink));
 
-        if(!$dbResult = mysqli_query($dbLink, $query))
+        $query = 'SELECT email FROM user WHERE email = ' . '\'' . $email . '\'';
+
+        if (!$dbResult = mysqli_query($dbLink, $query))
         {
-            echo 'Erreur dela requête<br/>';
+            echo 'Erreur de la requête<br/>';
             //Type erreur
             echo 'Erreur : ' . mysqli_error($dbLink) . '<br/>';
             //Affiche requête envoyée
             echo 'Requête : ' . $query . '<br/>';
             exit();
-
         }
 
-        end_page();
-        header('Location: pageSession.php');
+        else
+        {
+            if (mysqli_num_rows($dbResult) == 0)
+            {
+                echo 'E-mail non valide. Réessayez. <br/>';
+            }
+            else
+            {
+                mail($email, 'Mot de passe oublié', $message);
+
+                $query = 'UPDATE  user SET motdepasse =' . '\'' . md5($mdp) . '\'' . 'WHERE email = ' . '\'' . $email . '\'';
+
+                if (!$dbResult = mysqli_query($dbLink, $query))
+                {
+                    echo 'Erreur de la requête<br/>';
+                    //Type erreur
+                    echo 'Erreur : ' . mysqli_error($dbLink) . '<br/>';
+                    //Affiche requête envoyée
+                    echo 'Requête : ' . $query . '<br/>';
+                    exit();
+                }
+                header('Location: connexion.php');
+            }
+        }
     }
-    else
-    {
-        end_page();
-        header('Location: login.php?step=ERROR');
-    }
-}
+?>
