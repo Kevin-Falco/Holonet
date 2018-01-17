@@ -50,6 +50,7 @@
                     $_SESSION['pseudo'] = $dbRow['pseudo'];
                     $_SESSION['email'] = $email;
                     $_SESSION['mdp'] = md5($mdp);
+                    $_SESSION['categorie'] = $dbRow['categorie'];
 
                     if($dbRow['valider'])
                     {
