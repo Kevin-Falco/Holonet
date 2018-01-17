@@ -52,7 +52,7 @@
                 > Page 2 </a >
 
                 <?php
-                if($_SESSION['login'] == null)
+                if($_SESSION['email'] == null)
                 {
                 ?>
 

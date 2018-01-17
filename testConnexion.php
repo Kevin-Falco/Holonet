@@ -47,22 +47,25 @@
             {
                 if (md5($mdp) == $dbRow['motdepasse'])
                 {
+                    $_SESSION['pseudo'] = $dbRow['pseudo'];
+                    $_SESSION['email'] = $email;
+                    $_SESSION['mdp'] = md5($mdp);
+
                     if($dbRow['valider'])
                     {
-                        $_SESSION['login'] = 'ok';
-                        $_SESSION['pseudo'] = $pseudo;
-                        $_SESSION['mdp'] = md5($mdp);
                         header('Location: index.php');
+                        exit;
                     }
                     else
                     {
-                        header('Location: connexion.php?step=VALIDATION');
+                        header('Location: validationInscription.php');
+                        exit;
                     }
                 }
                 else
                 {
-                    fin_page();
                     header('Location: connexion.php?step=ERROR');
+                    exit;
                 }
             }
         }

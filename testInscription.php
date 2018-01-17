@@ -9,12 +9,11 @@
     $email= $_POST['email'];
     $mdp= $_POST['mdp'];
     $verifmdp= $_POST['verifmdp'];
+    $status= $_POST['status'];
 
     $code = rand(0, 999999999);
 
-
     $action = $_POST['action'];
-
 
     $dbHost = 'mysql-bestsithever.alwaysdata.net';
     $dbLogin = '149556_holoadmin';
@@ -28,8 +27,6 @@
 
     if($action == 'Valider')
     {
-        if($verifmdp != $mdp) header('Location: inscription.php?step=BAD_MDP');
-
         $dbLink = mysqli_connect($dbHost, $dbLogin, $dbPass)
         or die('Erreur de connexion dans la base : ' . mysqli_error($dbLink));
 
@@ -49,13 +46,22 @@
 
         }
 
-        if($query != null)
+        if($dbRow = mysqli_fetch_assoc($dbResult))
         {
-            fin_page();
-            header('Location: inscription.php?step=EMAIL_EXIST');
+            if($email == $dbRow['email'])
+            {
+                header('Location: inscription.php?step=EMAIL_EXIST');
+                exit;
+            }
         }
 
-        $query = 'INSERT INTO user (pseudo, email, motdepasse, code, valider) VALUES (\'' . $pseudo . '\', \'' . $email . '\', \'' . md5($mdp) . '\',' . $code . ', ' . 0  . ')';
+        if($verifmdp != $mdp)
+        {
+            header('Location: inscription.php?step=BAD_MDP');
+            exit;
+        }
+
+        $query = 'INSERT INTO user (pseudo, email, motdepasse, categorie, code, valider) VALUES (\'' . $pseudo . '\', \'' . $email . '\', \'' . md5($mdp) . '\',\'' . $status . '\', ' . $code . ', ' . 0  . ')';
 
         if(!$dbResult = mysqli_query($dbLink, $query))
         {
@@ -77,6 +83,7 @@
             $_SESSION['email'] = $email;
             $_SESSION['mdp'] = md5($mdp);
             header('Location: validationInscription.php');
+            exit;
         }
     }
 

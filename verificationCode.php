@@ -27,7 +27,7 @@
         mysqli_select_db($dbLink, $dbBd)
         or die('Erreur dans la sélection de la base : ' . mysqli_error($dbLink));
 
-        $query = 'SELECT code FROM user WHERE email = ' . '\'' . $_SESSION['email'] . '\'';
+        $query = 'SELECT * FROM user WHERE email = ' . '\'' . $_SESSION['email'] . '\'';
 
         if(!$dbResult = mysqli_query($dbLink, $query))
         {
@@ -45,14 +45,26 @@
             {
                 if ($code == $dbRow['code'])
                 {
-                    $_SESSION['login'] = 'ok';
+                    $query = 'UPDATE user set valider = 1 WHERE email = ' . '\'' . $_SESSION['email'] . '\'';
 
-                    $query = 'UPDATE valider set 1 WHERE email = ' . '\'' . $email . '\'';
+                    if(!$dbResult = mysqli_query($dbLink, $query))
+                    {
+                        echo 'Erreur dela requête<br/>';
+                        //Type erreur
+                        echo 'Erreur : ' . mysqli_error($dbLink) . '<br/>';
+                        //Affiche requête envoyée
+                        echo 'Requête : ' . $query . '<br/>';
+                        exit();
+
+                    }
+
                     header('Location: verifCodeOk.php');
+                    exit;
                 }
                 else
                 {
                     header('Location: validationInscription.php?step=ERROR');
+                    exit;
                 }
             }
         }
