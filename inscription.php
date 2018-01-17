@@ -2,6 +2,11 @@
     include 'utils.inc.php';
 
     debut_page();
+
+    if ($_GET['step'] == 'EMAIL_EXIST')
+    {
+        echo 'Erreur, e-mail déjà utilisé.';
+    }
 ?>
     <header>
         <!-- Vide -->

@@ -10,7 +10,8 @@
     $email= $_POST['email'];
     $mdp= $_POST['mdp'];
     $verifmdp= $_POST['verifmdp'];
-    $code = rand(0, 9999999999);
+
+    $code = rand(0, 999999999);
 
 
     $action = $_POST['action'];
@@ -35,9 +36,26 @@
         mysqli_select_db($dbLink, $dbBd)
         or die('Erreur dans la sélection de la base : ' . mysqli_error($dbLink));
 
+        $query = 'SELECT * FROM user WHERE email = ' . '\'' . $email . '\'';
 
-        $query = 'INSERT INTO user (pseudo, email, motdepasse, code, valider) VALUES (\'' . $pseudo . '\', \'' . $email . '\', \'' . $mdp . '\',' . $code . ', ' . 0  . ')';
+        if(!$dbResult = mysqli_query($dbLink, $query))
+        {
+            echo 'Erreur dela requête<br/>';
+            //Type erreur
+            echo 'Erreur : ' . mysqli_error($dbLink) . '<br/>';
+            //Affiche requête envoyée
+            echo 'Requête : ' . $query . '<br/>';
+            exit();
 
+        }
+
+        if($query != null)
+        {
+            fin_page();
+            header('Location: inscription.php?step=EMAIL_EXIST');
+        }
+
+        $query = 'INSERT INTO user (pseudo, email, motdepasse, code, valider) VALUES (\'' . $pseudo . '\', \'' . $email . '\', \'' . md5($mdp) . '\',' . $code . ', ' . 0  . ')';
 
         if(!$dbResult = mysqli_query($dbLink, $query))
         {
@@ -56,7 +74,8 @@
             mail($email, "Code d\'activation",$message);
 
             $_SESSION['pseudo'] = $pseudo;
-            $_SESSION['mdp'] = $mdp;
+            $_SESSION['email'] = $email;
+            $_SESSION['mdp'] = md5($mdp);
             fin_page();
             header('Location: validationInscription.php');
         }
