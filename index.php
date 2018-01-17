@@ -10,7 +10,7 @@
     <?php barre_Navigation(0); //__FILE__?>
 
     <?php
-        if($_SESSION['login'] == 'ok')
+        if($_SESSION['email'] != null)
         {
             echo 'Magecraft : ' . $_SESSION['pseudo'];
         }
