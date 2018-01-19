@@ -42,7 +42,8 @@
         {
             if (mysqli_num_rows($dbResult) == 0)
             {
-                echo 'E-mail non valide. Réessayez. <br/>';
+                header('Location: mdp_oublie.php?step=ERROR_EMAIL');
+                exit;
             }
             else
             {

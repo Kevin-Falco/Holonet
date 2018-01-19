@@ -39,6 +39,12 @@
         }
         else
         {
+            if (mysqli_num_rows($dbResult) == 0)
+            {
+                header('Location: connexion.php?step=ERROR_EMAIL');
+                exit;
+            }
+
             if($dbRow = mysqli_fetch_assoc($dbResult))
             {
                 if (md5($mdp) == $dbRow['motdepasse'])
@@ -61,7 +67,7 @@
                 }
                 else
                 {
-                    header('Location: connexion.php?step=ERROR');
+                    header('Location: connexion.php?step=ERROR_MDP');
                     exit;
                 }
             }
