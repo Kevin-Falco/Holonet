@@ -25,7 +25,7 @@
 
     <div class="formulaire">
 
-        <form action="testModifMdp.php" method="post">
+        <form action="../BD/testModifMdp.php" method="post">
 
             <label>Ancien Mot de passe</label><br/>
             <input type="password" name="ancien_mdp" required><br/>

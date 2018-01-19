@@ -2,25 +2,19 @@
     include 'utils.inc.php';
 
     session_start();
-?>
-
-<?php
-    $code= $_POST['code'];
 
     $action = $_POST['action'];
 
-
-    $dbHost = 'mysql-bestsithever.alwaysdata.net';
-    $dbLogin = '149556_holoadmin';
-    $dbPass = 'kyloben';
-
-    $dbBd = 'bestsithever_holocron';
-?>
-
-<?php
-
     if($action == 'Valider')
     {
+        $code= $_POST['code'];
+
+        $dbHost = 'mysql-bestsithever.alwaysdata.net';
+        $dbLogin = '149556_holoadmin';
+        $dbPass = 'kyloben';
+
+        $dbBd = 'bestsithever_holocron';
+
         $dbLink = mysqli_connect($dbHost, $dbLogin, $dbPass)
         or die('Erreur de connexion dans la base : ' . mysqli_error($dbLink));
 

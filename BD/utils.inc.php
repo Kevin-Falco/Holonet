@@ -16,9 +16,9 @@
             <meta name="viewport" content="width=device-width, initial-scale=1">
 
             <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-            <link rel="stylesheet" href="css/style.css">
+            <link rel="stylesheet" href="../css/style.css">
 
-            <script src="js/toolbar.js"></script>
+            <script src="../js/toolbar.js"></script>
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
             <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
@@ -32,23 +32,23 @@
         echo '</body>';
     }
 
-    function barre_Navigation($pageActive)
+    function barre_Navigation($pageActive = 0)
     {
 ?>
         <nav>
             <div class="navbar" id="myNavbar">
 
                 //Javascript pour savoir la page, mettre classe Passive/Active
-                <a href="index.php"
-                <?php if($pageActive == 0) echo'class="active"'; ?>
+                <a href="../pages/index.php"
+                <?php if($pageActive == 1) echo'class="active"'; ?>
                 echo'>Accueil</a>';
 
-                <a href = "page1.php"
-                <?php if($pageActive == 1)echo 'class=active"'; ?>
+                <a href = "../pages/page1.php"
+                <?php if($pageActive == 2)echo 'class=active"'; ?>
                 > Page 1 </a >
 
-                <a href = "page2.php"
-                <?php if($pageActive == 2)echo 'class=active"';?>
+                <a href = "../pages/page2.php"
+                <?php if($pageActive == 3)echo 'class=active"';?>
                 > Page 2 </a >
 
                 <?php
@@ -56,8 +56,8 @@
                 {
                 ?>
 
-                    <a href="connexion.php" id="connectButton"
-                    <?php if($pageActive == 3) echo 'class="active"'; ?>
+                    <a href="../pages/connexion.php" id="connectButton"
+                    <?php if($pageActive == 4) echo 'class="active"'; ?>
                     >Connexion</a>
 
                 <?php
@@ -65,8 +65,8 @@
                 else
                 {
                 ?>
-                    <a href="profil.php" id="connectButton"
-                    <?php if($pageActive == 3) echo 'class="active"' ?>
+                    <a href="../pages/profil.php" id="connectButton"
+                    <?php if($pageActive == 4) echo 'class="active"' ?>
                     >Profil</a>
                 <?php
                 }

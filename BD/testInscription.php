@@ -1,28 +1,24 @@
 <?php
     session_start();
 
-    $pseudo= $_POST['pseudo'];
-    $email= $_POST['email'];
-    $mdp= $_POST['mdp'];
-    $verifmdp= $_POST['verifmdp'];
-    $status= $_POST['status'];
-
-    $code = rand(0, 999999999);
-
     $action = $_POST['action'];
-
-    $dbHost = 'mysql-bestsithever.alwaysdata.net';
-    $dbLogin = '149556_holoadmin';
-    $dbPass = 'kyloben';
-
-    $dbBd = 'bestsithever_holocron';
-
-?>
-
-<?php
 
     if($action == 'Valider')
     {
+        $pseudo= $_POST['pseudo'];
+        $email= $_POST['email'];
+        $mdp= $_POST['mdp'];
+        $verifmdp= $_POST['verifmdp'];
+        $status= $_POST['status'];
+
+        $code = mt_rand(0, 999999999);
+
+        $dbHost = 'mysql-bestsithever.alwaysdata.net';
+        $dbLogin = '149556_holoadmin';
+        $dbPass = 'kyloben';
+
+        $dbBd = 'bestsithever_holocron';
+
         $dbLink = mysqli_connect($dbHost, $dbLogin, $dbPass)
         or die('Erreur de connexion dans la base : ' . mysqli_error($dbLink));
 

@@ -15,7 +15,7 @@
 
     <?php barre_Navigation(2); //__FILE__?>
 
-    <form action="verificationCode.php" method="post">
+    <form action="../BD/verificationCode.php" method="post">
 
         <label>Code d'activation reçu par e-mail</label><br/>
         <input type="text"  name="code"/><br/>
