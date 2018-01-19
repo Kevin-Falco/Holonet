@@ -1,23 +1,20 @@
 <?php
     session_start();
 
-    $ancien_mdp= $_POST['ancien_mdp'];
-    $nouveau_mdp = $_POST['nouveau_mdp'];
-    $verif_nouveau_mdp= $_POST['verif_nouveau_mdp'];
-
     $action = $_POST['action'];
-
-    $dbHost = 'mysql-bestsithever.alwaysdata.net';
-    $dbLogin = '149556_holoadmin';
-    $dbPass = 'kyloben';
-
-    $dbBd = 'bestsithever_holocron';
-?>
-
-<?php
 
     if($action == 'Valider')
     {
+        $ancien_mdp= $_POST['ancien_mdp'];
+        $nouveau_mdp = $_POST['nouveau_mdp'];
+        $verif_nouveau_mdp= $_POST['verif_nouveau_mdp'];
+
+        $dbHost = 'mysql-bestsithever.alwaysdata.net';
+        $dbLogin = '149556_holoadmin';
+        $dbPass = 'kyloben';
+
+        $dbBd = 'bestsithever_holocron';
+
         $dbLink = mysqli_connect($dbHost, $dbLogin, $dbPass)
         or die('Erreur de connexion dans la base : ' . mysqli_error($dbLink));
 
