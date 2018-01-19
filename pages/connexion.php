@@ -3,9 +3,13 @@
 
     debut_page();
 
-    if ($_GET['step'] == 'ERROR')
+    if ($_GET['step'] == 'ERROR_MDP')
     {
-        echo 'Erreur d\'email ou de mot de passe.';
+        echo 'Erreur de mot de passe.';
+    }
+    else if ($_GET['step'] == 'ERROR_EMAIL')
+    {
+        echo 'Erreur, l\'e-mail n\'existe pas.';
     }
     else if ($_GET['step'] == 'VALIDATION')
     {

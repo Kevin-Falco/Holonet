@@ -4,6 +4,11 @@
 
     session_start();
     debut_page();
+
+    if($_GET['step'] == 'ERROR_EMAIL')
+    {
+        echo 'E-mail non valide. Réessayez. <br/>';
+    }
 ?>
 
     <header>
