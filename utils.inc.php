@@ -39,15 +39,15 @@
             <div class="navbar" id="myNavbar">
 
                 //Javascript pour savoir la page, mettre classe Passive/Active
-                <a href="../pages/index.php"
+                <a href="index.php"
                 <?php if($pageActive == 1) echo'class="active"'; ?>
                 echo'>Accueil</a>';
 
-                <a href = "../pages/page1.php"
+                <a href = "page1.php"
                 <?php if($pageActive == 2)echo 'class=active"'; ?>
                 > Page 1 </a >
 
-                <a href = "../pages/page2.php"
+                <a href = "page2.php"
                 <?php if($pageActive == 3)echo 'class=active"';?>
                 > Page 2 </a >
 
@@ -56,7 +56,7 @@
                 {
                 ?>
 
-                    <a href="../pages/connexion.php" id="connectButton"
+                    <a href="connexion.php" id="connectButton"
                     <?php if($pageActive == 4) echo 'class="active"'; ?>
                     >Connexion</a>
 
@@ -65,7 +65,7 @@
                 else
                 {
                 ?>
-                    <a href="../pages/profil.php" id="connectButton"
+                    <a href="profil.php" id="connectButton"
                     <?php if($pageActive == 4) echo 'class="active"' ?>
                     >Profil</a>
                 <?php

@@ -23,12 +23,12 @@
 
         if($verif_nouveau_mdp != $nouveau_mdp)
         {
-            header('Location: modifMdp.php?step=ERROR_VERIF');
+            header('Location: ../pages/modifMdp.php?step=ERROR_VERIF');
             exit;
         }
         else if($nouveau_mdp == $ancien_mdp)
         {
-            header('Location: modifMdp.php?step=ERROR_ANCIEN');
+            header('Location: ../pages/modifMdp.php?step=ERROR_ANCIEN');
             exit;
         }
 
@@ -66,13 +66,13 @@
                     }
                     else
                     {
-                        header('Location: profil.php?step=MODIF_MDP');
+                        header('Location: ../pages/profil.php?step=MODIF_MDP');
                         exit;
                     }
                 }
                 else
                 {
-                    header('Location: modifMdp.php?step=MDP_INCORRECT');
+                    header('Location: ../pages/modifMdp.php?step=MDP_INCORRECT');
                     exit;
                 }
             }

@@ -1,5 +1,5 @@
 <?php
-    include 'utils.inc.php';
+    include '../utilitaires/utils.inc.php';
 
     debut_page();
 
@@ -25,7 +25,7 @@
     <label class="titre">Connexion</label>
 
 
-    <form action="testConnexion.php" method="post">
+    <form action="../BD/testConnexion.php" method="post">
 
         <label>Email</label><br/>
         <input type="text" name="email"><br/>
