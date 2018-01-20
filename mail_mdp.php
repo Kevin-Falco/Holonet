@@ -38,7 +38,7 @@
         {
             if (mysqli_num_rows($dbResult) == 0)
             {
-                header('Location: ../pages/mdp_oublie.php?step=ERROR_EMAIL');
+                header('Location: mdp_oublie.php?step=ERROR_EMAIL');
                 exit;
             }
             else
@@ -57,7 +57,7 @@
                     echo 'Requête : ' . $query . '<br/>';
                     exit();
                 }
-                header('Location: ../pages/connexion.php');
+                header('Location: connexion.php');
             }
         }
     }

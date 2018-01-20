@@ -1,5 +1,5 @@
 <?php
-include '../utilitaires/utils.inc.php';
+include 'utils.inc.php';
 
 session_start();
 debut_page();

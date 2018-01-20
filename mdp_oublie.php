@@ -1,5 +1,5 @@
 <?php
-    include '../utilitaires/utils.inc.php';
+    include 'utils.inc.php';
 
     session_start();
     debut_page();
@@ -17,7 +17,7 @@
 
     <div class="Changement">
         Entrez votre adresse e-mail. Si vous êtes inscrit vous recevrez un nouveau mot de passe via cette adresse.
-        <form action="../BD/mail_mdp.php" method="post">
+        <form action="mail_mdp.php" method="post">
             <label>Email</label><br/>
             <input type="email" name="email"/><br/>
             <input type="submit" name="action" value="mailer"/><br/>

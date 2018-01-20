@@ -36,7 +36,7 @@
         {
             if (mysqli_num_rows($dbResult) == 0)
             {
-                header('Location: ../pages/connexion.php?step=ERROR_EMAIL');
+                header('Location: connexion.php?step=ERROR_EMAIL');
                 exit;
             }
 
@@ -51,18 +51,18 @@
 
                     if($dbRow['valider'])
                     {
-                        header('Location: ../pages/index.php');
+                        header('Location: index.php');
                         exit;
                     }
                     else
                     {
-                        header('Location: ../pages/validationInscription.php');
+                        header('Location: validationInscription.php');
                         exit;
                     }
                 }
                 else
                 {
-                    header('Location: ../pages/connexion.php?step=ERROR_MDP');
+                    header('Location: connexion.php?step=ERROR_MDP');
                     exit;
                 }
             }

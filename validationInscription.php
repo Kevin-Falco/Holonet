@@ -1,5 +1,5 @@
 <?php
-    include '../utilitaires/utils.inc.php';
+    include 'utils.inc.php';
 
     session_start();
     debut_page();
@@ -15,7 +15,7 @@
 
     <?php barre_Navigation(2); //__FILE__?>
 
-    <form action="../BD/verificationCode.php" method="post">
+    <form action="verificationCode.php" method="post">
 
         <label>Code d'activation reçu par e-mail</label><br/>
         <input type="text"  name="code"/><br/>
