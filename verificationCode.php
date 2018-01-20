@@ -52,12 +52,12 @@
 
                     }
 
-                    header('Location: ../pages/verifCodeOk.php');
+                    header('Location: verifCodeOk.php');
                     exit;
                 }
                 else
                 {
-                    header('Location: ../pages/validationInscription.php?step=ERROR');
+                    header('Location: validationInscription.php?step=ERROR');
                     exit;
                 }
             }

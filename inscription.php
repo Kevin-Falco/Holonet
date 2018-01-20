@@ -1,5 +1,5 @@
 <?php
-    include '../utilitaires/utils.inc.php';
+    include 'utils.inc.php';
 
     debut_page();
 
@@ -21,7 +21,7 @@
 
     <div class="formulaire">
 
-        <form action="../BD/testInscription.php" method="post">
+        <form action="testInscription.php" method="post">
 
             <label>Pseudo</label><br/>
             <input type="text" name="pseudo" required><br/>

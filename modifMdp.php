@@ -1,5 +1,5 @@
 <?php
-    include '../utilitaires/utils.inc.php';
+    include 'utils.inc.php';
 
     session_start();
     debut_page();
@@ -25,7 +25,7 @@
 
     <div class="formulaire">
 
-        <form action="../BD/testModifMdp.php" method="post">
+        <form action="testModifMdp.php" method="post">
 
             <label>Ancien Mot de passe</label><br/>
             <input type="password" name="ancien_mdp" required><br/>
