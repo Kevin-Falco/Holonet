@@ -42,14 +42,14 @@
         {
             if($email == $dbRow['email'])
             {
-                header('Location: inscription.php?step=EMAIL_EXIST');
+                header('Location: ../pages/inscription.php?step=EMAIL_EXIST');
                 exit;
             }
         }
 
         if($verifmdp != $mdp)
         {
-            header('Location: inscription.php?step=BAD_MDP');
+            header('Location: ../pages/inscription.php?step=BAD_MDP');
             exit;
         }
 
@@ -74,7 +74,7 @@
             $_SESSION['pseudo'] = $pseudo;
             $_SESSION['email'] = $email;
             $_SESSION['mdp'] = md5($mdp);
-            header('Location: validationInscription.php');
+            header('Location: ../pages/validationInscription.php');
             exit;
         }
     }
