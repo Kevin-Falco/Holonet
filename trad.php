@@ -7,6 +7,7 @@ define('DEFAULT_LOCALE', 'fr_FR');
 require_once('lib/gettext/gettext.inc');
 
 $supported_locales = array('en_US', 'fr_FR');
+$_POST['locales'] = $supported_locales;
 $encoding = 'UTF-8';
 
 $locale = (isset($_GET['lang']))? $_GET['lang'] : DEFAULT_LOCALE;
