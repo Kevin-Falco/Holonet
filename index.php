@@ -19,6 +19,10 @@
     <div class="container-fluid">
         <p><?= 'Mettre du texte à la place des balises br. PS : le bootstrap c\'est bien et normalement le site est responsive (pour l\'instant)'?></p>
         <p> <?php echo gettext('Bonjour et bienvenue sur le Best Sith Ever, votre site de traduction préféré.'); echo gettext("\tCeci est une présentation très ravissante!") ?></p>
+        <?php foreach($_POST['locales'] as $l) {
+            print "[<a href=\"?lang=$l\">$l</a>] ";
+        }
+        print "</p>\n"; ?>
         <div class="row">
             <div class="col-xs-1 col-sm-4"></div>
             <div class="col-xs-10 col-sm-4 used">
