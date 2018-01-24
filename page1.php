@@ -1,4 +1,5 @@
 <?php
+include 'trad.php';
 include 'utils.inc.php';
 
 session_start();
