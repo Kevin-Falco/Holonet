@@ -1,27 +1,17 @@
-<?php
-    include 'utils.inc.php';
+<?php debut_page(); ?>
 
-    debut_page();
+    <?= $message_erreur ?>
 
-    if ($_GET['step'] == 'EMAIL_EXIST')
-    {
-        echo 'Erreur, e-mail déjà utilisé.';
-    }
-
-    else if($_GET['step'] == 'BAD_MDP')
-    {
-        echo 'Mot de passes non identiques.';
-    }
-?>
     <header>
         <!-- Vide -->
     </header>
-    <?php barre_Navigation(3); //__FILE__?>
+    <?php barre_Navigation(); //__FILE__?>
+
     <label class="titre">Inscription</label>
 
     <div class="formulaire">
 
-        <form action="testInscription.php" method="post">
+        <form action="/controller/inscriptionModelController.php" method="post">
 
             <label>Pseudo</label><br/>
             <input type="text" name="pseudo" required><br/>
@@ -47,6 +37,5 @@
 
         </form>
     </div>
-<?php
-    fin_page();
-?>
+
+<?php fin_page(); ?>

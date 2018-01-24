@@ -1,23 +1,7 @@
-<?php
-    include 'utils.inc.php';
+<?php debut_page() ?>
 
-    session_start();
-    debut_page();
+    <?= $message_erreur ;?>
 
-    if ($_GET['step'] == 'ERROR_VERIF')
-    {
-        echo 'Erreur dans les mots de passe, veuillez réessayer.';
-    }
-    else if ($_GET['step'] == 'ERROR_ANCIEN')
-    {
-        echo 'Erreur, votre nouveau mot de passe ne peut pas être l\'ancien.';
-    }
-    else if ($_GET['step'] == 'MDP_INCORRECT')
-    {
-        echo 'Erreur dans l\'ancien mot de passe, veuillez réessayer.';
-    }
-
-?>
     <header>
 
     </header>
@@ -25,7 +9,7 @@
 
     <div class="formulaire">
 
-        <form action="testModifMdp.php" method="post">
+        <form action="../model/modifMdpModel.php" method="post">
 
             <label>Ancien Mot de passe</label><br/>
             <input type="password" name="ancien_mdp" required><br/>
