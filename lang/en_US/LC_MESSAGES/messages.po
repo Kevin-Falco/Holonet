@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2018-01-23 10:26+0100\n"
-"PO-Revision-Date: 2018-01-23 10:28+0100\n"
+"POT-Creation-Date: 2018-01-26 19:46+0100\n"
+"PO-Revision-Date: 2018-01-26 19:48+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: en_US\n"
@@ -15,14 +15,113 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPath-1: index.php\n"
 
-#: index.php:21
-msgid "Bonjour et bienvenue sur le Best Sith Ever, votre site de traduction préféré."
-msgstr "Hello and welcome to the Best Sith Ever, your favorite translation website."
+#: antho-test/Holonet/view/accueil.php:10
+msgid ""
+"Bonjour et bienvenue sur le Best Sith Ever, votre site de traduction préféré."
+msgstr ""
+"Hello and welcome to the Best Sith Ever, your favorite translation website."
 
-#: index.php:21
+#: antho-test/Holonet/view/accueil.php:10
 msgid "\tCeci est une présentation très ravissante!"
 msgstr "\tThis is a very charming presentation!"
 
-#: index.php:35
+#: antho-test/Holonet/view/accueil.php:28
 msgid "J'ai pas d'idée"
 msgstr "I've no idea"
+
+#: connexion.php:26 utils.inc.php:72
+msgid "Connexion"
+msgstr "Sign In"
+
+#: connexion.php:31 inscription.php:30 mdp_oublie.php:22
+msgid "Email"
+msgstr "Email"
+
+#: connexion.php:34 inscription.php:33
+msgid "Mot de passe"
+msgstr "Password"
+
+#: connexion.php:40
+msgid "Mot de passe oublié ?"
+msgstr "Forgotten password ?"
+
+#: connexion.php:41
+msgid "S'inscrire"
+msgstr "Sign up"
+
+#: index.php:35
+msgid "Passez du côté obscur de la force"
+msgstr "Go to the dark side of the force"
+
+#: index.php:41
+msgid "Que la force soit avec vous"
+msgstr "May the force be with you"
+
+#: index.php:60
+msgid ""
+"Bonjour et bienvenue sur le Best Sith Ever, votre site de traduction "
+"préféré. Ici, vous pourrez traduire vos textes grâce à la puissance du côté "
+"obscur.\n"
+"    Nous sommes Hugo Fasone, Kévin Falco, Léo Ferrer-Laroche, Théo Hebrard "
+"et Anthony Jou, 5 étudiants en DUT d’informatique.\n"
+"    Connectez-vous pour profiter de nos pouvoirs sur la force de manière "
+"illimitée, ou devenez un membre premium pour nous aider à les étendre !"
+msgstr ""
+"Hello and welcome to the Best Sith Ever, your favorite translation website. "
+"Here, you can translate your texts thanks to the power of the dark side.\n"
+"\v    We are Hugo Fasone, Kévin Falco, Léo Ferrer-Laroche, Théo Hebrard et "
+"Anthony Jou, 5 students in IT DUT. \n"
+"    Log in to enjoy our power ton the force in an unlimited way, or become a "
+"premium member to help us extend them !"
+
+#: index.php:63
+msgid "Et que la force soit avec vous!"
+msgstr "And may the force be with you!"
+
+#: inscription.php:21
+msgid "Inscription"
+msgstr "Registration"
+
+#: inscription.php:27
+msgid "Pseudo"
+msgstr "Username"
+
+#: inscription.php:37
+msgid "Vérification mot de passe"
+msgstr "Checking password"
+
+#: inscription.php:40
+msgid "Status"
+msgstr "Status"
+
+#: inscription.php:41
+msgid "Standard"
+msgstr "Standard"
+
+#: inscription.php:42
+msgid "Premium"
+msgstr "Premium"
+
+#: inscription.php:43
+msgid "Traducteur"
+msgstr "Translator"
+
+#: inscription.php:45
+msgid "Conditions générales"
+msgstr "Terms and conditions"
+
+#: mdp_oublie.php:10
+msgid "E-mail non valide. Réessayez. <br/>"
+msgstr "Invalid e-mail. Please try again. <br/>"
+
+#: mdp_oublie.php:20
+msgid ""
+"Entrez votre adresse e-mail. Si vous êtes inscrit vous recevrez un nouveau "
+"mot de passe via cette adresse."
+msgstr ""
+"Enter your e-mail adress. If you are registered you will receive a new "
+"password via this address."
+
+#: utils.inc.php:46
+msgid "Accueil"
+msgstr "Home"

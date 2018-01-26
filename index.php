@@ -57,17 +57,12 @@
 
 <div id="presentation">
     <p>
-        Bonjour et bienvenue sur le Best Sith Ever, votre site de traduction préféré. Ici, vous pourrez traduire vos textes grâce à la puissance du côté obscur.
+        <?php echo gettext('Bonjour et bienvenue sur le Best Sith Ever, votre site de traduction préféré. Ici, vous pourrez traduire vos textes grâce à la puissance du côté obscur.
     Nous sommes Hugo Fasone, Kévin Falco, Léo Ferrer-Laroche, Théo Hebrard et Anthony Jou, 5 étudiants en DUT d’informatique.
-    Connectez-vous pour profiter de nos pouvoirs sur la force de manière illimitée, ou devenez un membre premium pour nous aider à les étendre !<br/>Et que la force soit avec vous!<br/>
-        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+    Connectez-vous pour profiter de nos pouvoirs sur la force de manière illimitée, ou devenez un membre premium pour nous aider à les étendre !'); ?>
+        <br/> <?php echo gettext('Et que la force soit avec vous!') ?> <br/>
     </p>
 </div>
-
-<?php foreach($_POST['locales'] as $l) {
-    print "[<a href=\"?lang=$l\">$l</a>] ";
-}
-print "</p>\n"; ?>
 
 <?php
     fin_page();
