@@ -71,23 +71,9 @@ body {
         border-style: solid;
         border-color: white;
     }
-    .container {
-        margin: 0%;
-        padding: 0%;
-    }
-    .container img {
-        height: 150px!important;
-    }
-    .container h3 {
-        font-size: 1em;
-    }
 }
 
 /* CSS du corps du site */
-
-#myCarousel {
-    margin: 1.5% 25% 1.5% 25%;
-}
 
 .container-fluid {
     margin: 1.5% 5% 1.5% 5%;
@@ -96,11 +82,4 @@ body {
     background-color: darkblue;
     color: white;
     padding: 5px;
-}
-
-#presentation p {
-    margin: 1.5% 20% 1.5% 20%;
-    padding: 3%;
-    border: 2px black solid;
-    border-radius: 5px;
 }
