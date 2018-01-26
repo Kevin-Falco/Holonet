@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2018-01-26 19:46+0100\n"
-"PO-Revision-Date: 2018-01-26 19:48+0100\n"
+"POT-Creation-Date: 2018-01-26 22:20+0100\n"
+"PO-Revision-Date: 2018-01-26 22:21+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: en_US\n"
@@ -29,11 +29,11 @@ msgstr "\tThis is a very charming presentation!"
 msgid "J'ai pas d'idée"
 msgstr "I've no idea"
 
-#: connexion.php:26 utils.inc.php:72
+#: connexion.php:26 utils.inc.php:73
 msgid "Connexion"
 msgstr "Sign In"
 
-#: connexion.php:31 inscription.php:30 mdp_oublie.php:22
+#: connexion.php:31 inscription.php:30 mdp_oublie.php:22 profil.php:32
 msgid "Email"
 msgstr "Email"
 
@@ -82,7 +82,7 @@ msgstr "And may the force be with you!"
 msgid "Inscription"
 msgstr "Registration"
 
-#: inscription.php:27
+#: inscription.php:27 profil.php:29
 msgid "Pseudo"
 msgstr "Username"
 
@@ -122,6 +122,26 @@ msgstr ""
 "Enter your e-mail adress. If you are registered you will receive a new "
 "password via this address."
 
+#: modifMdp.php:31
+msgid "Ancien Mot de passe"
+msgstr "Former Password"
+
+#: modifMdp.php:34
+msgid "Nouveau Mot de passe"
+msgstr "New Password"
+
+#: modifMdp.php:37
+msgid "Vérification nouveau mot de passe"
+msgstr "Checking new password"
+
 #: utils.inc.php:46
 msgid "Accueil"
 msgstr "Home"
+
+#: verifCodeOk.php:15
+msgid "Vérification effectuée √"
+msgstr "Checking done √"
+
+#: verifCodeOk.php:16
+msgid "Retourner à l'accueil"
+msgstr "Return to home"
