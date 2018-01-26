@@ -50,13 +50,16 @@ debut_page();
                     <td>' . $dbRow['categorie'] . '</td>
                     <td>
                         <div class="dropdown">
-                          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Catégorie</button>
-                          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item" href="#">Supprimer</a>
-                            <a class="dropdown-item" href="#">Standard</a>
-                            <a class="dropdown-item" href="#">Premium</a>
-                            <a class="dropdown-item" href="#">Traducteur</a>
-                          </div>
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Catégorie</button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <form action="gestion_admin.php" method="post">
+                                    <input class="dropdown-item" type="submit" name="action" value="Supprimer"/>
+                                    <input class="dropdown-item" type="submit" name="action" value="Standard"/>
+                                    <input class="dropdown-item" type="submit" name="action" value="Premium"/>
+                                    <input class="dropdown-item" type="submit" name="action" value="Traducteur"/>
+                                    <input type="hidden" name="email" value="' . $dbRow['email'] . '"/>
+                                </form>
+                            </div>
                         </div>
                     </td>
                  </tr>';
