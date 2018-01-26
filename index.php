@@ -1,23 +1,12 @@
+<!-- Cette page a été traitée -->
 <?php
     include 'trad.php';
     include 'utils.inc.php';
 
-    session_start();
     debut_page();
+
+    barre_Navigation(1);
 ?>
-
-<header>
-    <!-- Vide -->
-</header>
-
-<?php barre_Navigation(1); //__FILE__?>
-
-<?php
-    if($_SESSION['login'] == 'ok') {
-        echo 'Magecraft : ' . $_SESSION['pseudo'];
-    }
-?>
-
 <div class="container">
     <div id="myCarousel" class="carousel slide" data-ride="carousel">
 
@@ -54,7 +43,6 @@
         </a>
     </div>
 </div>
-
 <div id="presentation">
     <p>
         <?php echo gettext('Bonjour et bienvenue sur le Best Sith Ever, votre site de traduction préféré. Ici, vous pourrez traduire vos textes grâce à la puissance du côté obscur.
@@ -63,7 +51,6 @@
         <br/> <?php echo gettext('Et que la force soit avec vous!') ?> <br/>
     </p>
 </div>
-
 <?php
     fin_page();
 ?>
