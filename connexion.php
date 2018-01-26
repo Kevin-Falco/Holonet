@@ -1,7 +1,8 @@
 <?php
-include 'utils.inc.php';
 include 'trad.php';
+include 'utils.inc.php';
 
+session_start();
 debut_page();
 
 if ($_GET['step'] == 'ERROR_MDP')
