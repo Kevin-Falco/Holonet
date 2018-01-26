@@ -37,19 +37,30 @@
 ?>
         <nav>
             <div class="navbar" id="myNavbar">
-
+                <?php
+                $_SESSION['lang'] = $_GET['lang'];
+                $p = $_SESSION['lang']; ?>
                 //Javascript pour savoir la page, mettre classe Passive/Active
-                <a href="index.php"
+                <?php echo '<a href = "index.php'; if (isset($_SESSION['lang'])){echo '?lang=' . $p;} echo '"';?>
                 <?php if($pageActive == 1) echo'class="active"'; ?>
                 echo'>Accueil</a>';
 
-                <a href = "page1.php"
+                <?php echo '<a href = "page1.php'; if (isset($_SESSION['lang'])){echo '?lang=' . $p;} echo '"';?>
                 <?php if($pageActive == 2)echo 'class=active"'; ?>
                 > Page 1 </a >
 
-                <a href = "page2.php"
+                <?php echo '<a href = "page2.php'; if (isset($_SESSION['lang'])){echo '?lang=' . $p;} echo '"';?>
                 <?php if($pageActive == 3)echo 'class=active"';?>
                 > Page 2 </a >
+
+                <?php
+                $langues = array('Translate to english','Traduire en français');
+                $cpt = 0;
+                foreach($_POST['locales'] as $l) {
+                    print "[<a href=\"?lang=$l\">" . $langues[$cpt++] . "</a>] ";
+                }
+
+                print "</p>\n"; ?>
 
                 <?php
                 if($_SESSION['email'] == null)
