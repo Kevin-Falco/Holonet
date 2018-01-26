@@ -1,15 +1,9 @@
 <?php
-include 'trad.php';
-include 'utils.inc.php';
+    include 'trad.php';
+    include 'utils.inc.php';
 
-session_start();
-?>
+    session_start();
 
-    <header>
-        <!-- Vide -->
-    </header>
-
-<?php
     if (isset($_SESSION['categorie']) && $_SESSION['categorie'] == 'admin') {
 
         if ($_SESSION['login'] == 'ok') {

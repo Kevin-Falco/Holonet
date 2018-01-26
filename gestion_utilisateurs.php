@@ -1,18 +1,11 @@
 <?php
-include 'trad.php';
-include 'utils.inc.php';
+    include 'trad.php';
+    include 'utils.inc.php';
 
-session_start();
-debut_page();
-?>
+    session_start();
+    debut_page();
 
-    <header>
-        <!-- Vide -->
-    </header>
-
-<?php if (isset($_SESSION['pseudo'])) {
-
-    if ($_SESSION['categorie'] == 'standard' || $_SESSION['categorie'] == 'premium' || $_SESSION['categorie'] == 'traducteur' || $_SESSION['categorie'] == 'admin') {
+    if (isset($_SESSION['pseudo']) && $_SESSION['categorie'] == 'admin') {
 
         barre_Navigation(3); //__FILE__
 
@@ -33,39 +26,28 @@ debut_page();
         or die('Erreur dans la sélection de la base : ' . mysqli_error($dbLink));
 
         $query = 'SELECT email, categorie FROM user WHERE categorie != \'admin\';';
-
-        if (!$query = mysqli_query($dbLink, $query)) {
-            echo 'Erreur de la requête<br/>';
-            //Type erreur
-            echo 'Erreur : ' . mysqli_error($dbLink) . '<br/>';
-            //Affiche requête envoyée
-            echo 'Requête : ' . $query . '<br/>';
-            exit();
-        }
-        else {
-            echo '<table style="width:100%"><tr><th>Email</th><th>Categorie</th><th>Changement</th></tr> ';
-            while ($dbRow = mysqli_fetch_assoc($query)) {
-                echo '<tr>
-                    <td>' . $dbRow['email'] . '</td>
-                    <td>' . $dbRow['categorie'] . '</td>
-                    <td>
-                        <div class="dropdown">
-                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Catégorie</button>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <form action="gestion_admin.php" method="post">
-                                    <input class="dropdown-item" type="submit" name="action" value="Supprimer"/>
-                                    <input class="dropdown-item" type="submit" name="action" value="Standard"/>
-                                    <input class="dropdown-item" type="submit" name="action" value="Premium"/>
-                                    <input class="dropdown-item" type="submit" name="action" value="Traducteur"/>
-                                    <input type="hidden" name="email" value="' . $dbRow['email'] . '"/>
-                                </form>
-                            </div>
+        echo '<table style="width:100%"><tr><th>Email</th><th>Categorie</th><th>Changement</th></tr> ';
+        $dbResult = mysqli_query($dbLink, $query);
+        while ($dbRow = mysqli_fetch_assoc($dbResult)) {
+            echo '<tr>
+                <td>' . $dbRow['email'] . '</td>
+                <td>' . $dbRow['categorie'] . '</td>
+                <td>
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Catégorie</button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <form action="gestion_admin.php" method="post">
+                                <input class="dropdown-item" type="submit" name="action" value="Supprimer"/>
+                                <input class="dropdown-item" type="submit" name="action" value="Standard"/>
+                                <input class="dropdown-item" type="submit" name="action" value="Premium"/>
+                                <input class="dropdown-item" type="submit" name="action" value="Traducteur"/>
+                                <input type="hidden" name="email" value="' . $dbRow['email'] . '"/>
+                            </form>
                         </div>
-                    </td>
-                 </tr>';
-            }
-            echo '</table>';
+                    </div>
+                </td>
+             </tr>';
         }
+        echo '</table>';
     }
-}
 ?>
