@@ -32,13 +32,13 @@
             <div class="item active">
                 <img src="img/cote_obscur.jpg" alt="Côté obscur" style="height: 288px; width: 600px;">
                 <div class="carousel-caption">
-                    <h3> <?php echo gettext('Passez du côté obscur de la force'); ?> </h3>
+                    <h3>Passez du côté obscur de la force</h3>
                 </div>
             </div>
             <div class="item">
                 <img src="img/cote_lumineux.jpg" alt="Côté lumineux" style="height: 288px; width: 600px;">
                 <div class="carousel-caption">
-                    <h3> <?php echo gettext('Que la force soit avec vous'); ?> </h3>
+                    <h3>Que la force soit avec vous</h3>
                 </div>
             </div>
         </div>
@@ -63,8 +63,6 @@
         <br/> <?php echo gettext('Et que la force soit avec vous!') ?> <br/>
     </p>
 </div>
-
-
 
 <?php
     fin_page();
