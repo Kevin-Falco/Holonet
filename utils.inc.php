@@ -67,8 +67,8 @@ function barre_Navigation($pageActive = 0)
             {
                 ?>
 
-                <?php //echo '<a href="connexion.php'; if (isset($_SESSION['lang'])){echo '?lang=' . $p;} echo '" id="connectButton"'; ?>
-                <a href="connexion.php" id="connectButton"
+                <?php echo '<a href="connexion.php'; if (isset($_SESSION['lang'])){echo '?lang=' . $p;} echo '" id="connectButton"'; ?>
+
                     <?php if($pageActive == 4) echo 'class="active"'; ?>
                 > <?php echo gettext('Connexion') ?> </a>
 
@@ -77,7 +77,7 @@ function barre_Navigation($pageActive = 0)
             else
             {
                 ?>
-                <a href="profil.php" id="connectButton"
+                <?php echo '<a href="profil.php'; if (isset($_SESSION['lang'])){echo '?lang=' . $p;} echo '" id="connectButton"'; ?>
                     <?php if($pageActive == 4) echo 'class="active"' ?>
                 >Profil</a>
                 <?php
