@@ -5,11 +5,11 @@
     <header>
 
     </header>
-    <?php barre_Navigation(3);?>
+    <?php barre_Navigation();?>
 
     <div class="formulaire">
 
-        <form action="../model/modifMdpModel.php" method="post">
+        <form action="/controller/modifMdpModelController.php" method="post">
 
             <label>Ancien Mot de passe</label><br/>
             <input type="password" name="ancien_mdp" required><br/>
@@ -25,7 +25,6 @@
 
         </form>
     </div>
-
 
 <?php
     fin_page();

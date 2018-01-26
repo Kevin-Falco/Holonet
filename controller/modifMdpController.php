@@ -19,3 +19,5 @@
     {
         $message_erreur = "";
     }
+
+    require('../view/modifMdp.php');

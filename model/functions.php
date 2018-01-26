@@ -1,15 +1,17 @@
 <?php
 
 /**
- * Modifie le mot de passe d'un utilisateur
- * @param $nouveau_mdp
- * @return int
+ * Récupère les données utilisateur
+ * @param String $email
+ * @return array|int|null
  */
-function modifMdp($email, $nouveau_mdp)
+
+
+function getUserDataByEmail($email)
 {
     $dbLink = db_connect();
 
-    $query = 'UPDATE user SET motdepasse = \'' . $nouveau_mdp . '\'' . ' WHERE email = ' . '\'' . $email . '\'';
+    $query = 'SELECT * FROM user WHERE email = \'' . $email . '\'';
 
     if (!$dbResult = mysqli_query($dbLink, $query))
     {
@@ -17,7 +19,6 @@ function modifMdp($email, $nouveau_mdp)
     }
     else
     {
-        return 1;
+        return mysqli_fetch_assoc($dbResult);
     }
 }
-

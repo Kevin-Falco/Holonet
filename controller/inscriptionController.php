@@ -1,5 +1,5 @@
 <?php
-    require('../utils.inc.php');
+    require('utils.inc.php');
 
     if ($_GET['step'] == 'EMAIL_EXIST')
     {

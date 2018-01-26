@@ -1,9 +1,9 @@
 <?php
-    require('../utils.inc.php');
+    require('utils.inc.php');
 
     if ($_GET['step'] == 'ERROR')
     {
         echo 'Erreur de code';
     }
 
-    require('../validationInscription.php');
+    require('../view/validationInscription.php');

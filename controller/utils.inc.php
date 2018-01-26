@@ -46,16 +46,16 @@
                 <?php if($pageActive == 1) echo'class="active"'; ?>
                 echo'>Accueil</a>';
 
-                <a href = "../page1.php"
+                <a href = "../view/page1.php"
                 <?php if($pageActive == 2)echo 'class=active"'; ?>
                 > Page 1 </a >
 
-                <a href = "../page2.php"
+                <a href = "../view/page2.php"
                 <?php if($pageActive == 3)echo 'class=active"';?>
                 > Page 2 </a >
 
                 <?php
-                if(isset($_SESSION['email']))
+                if(!isset($_SESSION['email']))
                 {
                 ?>
 
@@ -68,7 +68,7 @@
                 else
                 {
                 ?>
-                    <a href="/view/profil.php" id="connectButton"
+                    <a href="profilController.php" id="connectButton"
                     <?php if($pageActive == 4) echo 'class="active"' ?>
                     >Profil</a>
                 <?php

@@ -10,7 +10,7 @@
     <label class="titre">Connexion</label>
 
 
-    <form action="/controller/connexionModelController.php" method="post">
+    <form action="../controller/connexionModelController.php" method="post">
 
         <label>Email</label><br/>
         <input type="text" name="email"><br/>
@@ -21,7 +21,7 @@
         <input type="submit" name="action" value="connexion"/><br/>
 
     </form>
-    <a href="/mdp_oublie.php">Mot de passe oublié ?</a>
-    <a href="/controller/inscriptionController.php">S'inscrire</a>
+    <a href="../controller/modifMdpController.php">Mot de passe oublié ?</a>
+    <a href="../controller/inscriptionController.php">S'inscrire</a>
 
 <?php fin_page() ?>

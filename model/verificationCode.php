@@ -1,10 +1,9 @@
 <?php
-
-function connexion($email)
+function verificationCode($email)
 {
     $dbLink = db_connect();
 
-    $query = 'SELECT * FROM user WHERE email = ' . '\'' . $email . '\'';
+    $query = 'UPDATE user set valider = 1 WHERE email = \'' . $email . '\'';
 
     if(!$dbResult = mysqli_query($dbLink, $query))
     {
@@ -12,7 +11,7 @@ function connexion($email)
     }
     else
     {
-        return $dbResult;
+        return 1;
     }
 }
 ?>

@@ -1,6 +1,6 @@
 <?php
     require('../model/trad.php');
-    require('../utils.inc.php');
+    require('utils.inc.php');
 
     session_start();
 

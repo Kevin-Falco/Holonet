@@ -1,8 +1,8 @@
 <?php
     //Appel la fonction connexion(), récupère ce qu'elle trouve et regarde si tout est bon.
 
-    require('../utils.inc.php');
-    require('../connexionModel.php');
+    require('utils.inc.php');
+    require('../model/connexionModel.php');
 
     session_start();
 

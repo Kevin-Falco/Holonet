@@ -1,4 +1,5 @@
 <?php
     require('utils.inc.php');
-    require('../verifCodeOk.php');
+
+    require('../view/verifCodeOk.php');
 ?>
