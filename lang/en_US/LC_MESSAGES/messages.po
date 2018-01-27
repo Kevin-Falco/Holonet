@@ -1,0 +1,294 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: 2018-01-27 21:13+0100\n"
+"PO-Revision-Date: 2018-01-27 21:14+0100\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: en_US\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.0.6\n"
+"X-Poedit-Basepath: ../../..\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPath-1: index.php\n"
+
+#: antho-test/Holonet/view/accueil.php:10
+msgid ""
+"Bonjour et bienvenue sur le Best Sith Ever, votre site de traduction préféré."
+msgstr ""
+"Hello and welcome to the Best Sith Ever, your favorite translation website."
+
+#: antho-test/Holonet/view/accueil.php:10
+msgid "\tCeci est une présentation très ravissante!"
+msgstr "\tThis is a very charming presentation!"
+
+#: antho-test/Holonet/view/accueil.php:28
+msgid "J'ai pas d'idée"
+msgstr "I've no idea"
+
+#: connexion.php:20 utils.inc.php:91
+msgid "Connexion"
+msgstr "Sign In"
+
+#: connexion.php:22 inscription.php:24
+msgid "Email"
+msgstr "Email"
+
+#: connexion.php:25 inscription.php:27
+msgid "Mot de passe"
+msgstr "Password"
+
+#: connexion.php:31
+msgid "Mot de passe oublié ?"
+msgstr "Forgotten password ?"
+
+#: connexion.php:32
+msgid "S'inscrire"
+msgstr "Sign up"
+
+#: index.php:24
+msgid "Passez du côté obscur de la force"
+msgstr "Go to the dark side of the force"
+
+#: index.php:30
+msgid "Que la force soit avec vous"
+msgstr "May the force be with you"
+
+#: index.php:48
+msgid ""
+"Bonjour et bienvenue sur le Best Sith Ever, votre site de traduction "
+"préféré. Ici, vous pourrez traduire vos textes grâce à la puissance du côté "
+"obscur.\n"
+"    Nous sommes Hugo Fasone, Kévin Falco, Léo Ferrer-Laroche, Théo Hebrard "
+"et Anthony Jou, 5 étudiants en DUT d’informatique.\n"
+"    Connectez-vous pour profiter de nos pouvoirs sur la force de manière "
+"illimitée, ou devenez un membre premium pour nous aider à les étendre !"
+msgstr ""
+"Hello and welcome to the Best Sith Ever, your favorite translation website. "
+"Here, you can translate your texts thanks to the power of the dark side.\n"
+"\v    We are Hugo Fasone, Kévin Falco, Léo Ferrer-Laroche, Théo Hebrard et "
+"Anthony Jou, 5 students in IT DUT. \n"
+"    Log in to enjoy our power ton the force in an unlimited way, or become a "
+"premium member to help us extend them !"
+
+#: index.php:51
+msgid "Et que la force soit avec vous!"
+msgstr "And may the force be with you!"
+
+#: inscription.php:18
+msgid "Inscription"
+msgstr "Registration"
+
+#: inscription.php:21
+msgid "Pseudo"
+msgstr "Username"
+
+#: inscription.php:30
+msgid "Vérification mot de passe"
+msgstr "Checking password"
+
+#: inscription.php:33
+msgid "Status"
+msgstr "Status"
+
+#: inscription.php:34
+msgid "Standard"
+msgstr "Standard"
+
+#: inscription.php:35
+msgid "Premium"
+msgstr "Premium"
+
+#: inscription.php:36
+msgid "Traducteur"
+msgstr "Translator"
+
+#: inscription.php:38
+msgid "Conditions générales"
+msgstr "Terms and conditions"
+
+#: mdp_oublie.php:9
+msgid "E-mail non valide. Réessayez."
+msgstr "Invalid e-mail. Please try again."
+
+#: mdp_oublie.php:15
+msgid ""
+"Entrez votre adresse e-mail. Si vous êtes inscrit vous recevrez un nouveau "
+"mot de passe via cette adresse."
+msgstr ""
+"Enter your e-mail adress. If you are registered you will receive a new "
+"password via this address."
+
+#: modifMdp.php:22
+msgid "Ancien Mot de passe"
+msgstr "Former Password"
+
+#: modifMdp.php:25
+msgid "Nouveau Mot de passe"
+msgstr "New Password"
+
+#: modifMdp.php:28
+msgid "Vérification nouveau mot de passe"
+msgstr "Checking new password"
+
+#: page1.php:16
+msgid "La page 1 où on rigole ienb"
+msgstr "Page 1 where we laugh a tol"
+
+#: page1.php:20
+msgid "Mot à traduire : "
+msgstr "Word to translate : "
+
+#: page1.php:22 pagepremium.php:41 pagetraducteur.php:30 pagetraducteur.php:45
+msgid "Langue : "
+msgstr "Language : "
+
+#: page1.php:23 pagepremium.php:42 pagetraducteur.php:31 pagetraducteur.php:46
+#: pagetraducteur.php:129
+msgid "Francais"
+msgstr "French"
+
+#: page1.php:24 pagepremium.php:43 pagetraducteur.php:32 pagetraducteur.php:47
+#: pagetraducteur.php:130
+msgid "Anglais"
+msgstr "English"
+
+#: page1.php:27
+msgid "Traduire"
+msgstr "Translate"
+
+#: page1.php:38
+msgid "Page Premium"
+msgstr "Premium page"
+
+#: page1.php:40
+msgid "Page Traducteur"
+msgstr "Translator page"
+
+#: page2.php:11
+msgid ""
+"Voici la page 2. Elle n'a aucune spécificité donc envoyez nous vos idées."
+msgstr "Here is page 2. She is useless so send us your ideas."
+
+#: pagepremium.php:33
+msgid "Détecter la langue d'un mot :"
+msgstr "Detect the language of a word :"
+
+#: pagepremium.php:39
+msgid "Mot à demander :"
+msgstr "Word to request :"
+
+#: pagepremium.php:63
+msgid "Demandes de traductions en cours :"
+msgstr "Translation requests ongoing :"
+
+#: pagepremium.php:66 pagepremium.php:86 pagetraducteur.php:74
+#: pagetraducteur.php:119
+msgid "Demande de traduction du mot anglais "
+msgstr "Translation request of the english word "
+
+#: pagepremium.php:66 pagepremium.php:86
+msgid " en français"
+msgstr " in french"
+
+#: pagepremium.php:68
+msgid "Demande de traduction du mot francais "
+msgstr "Translation request of the french word "
+
+#: pagepremium.php:68 pagepremium.php:88
+msgid " en anglais"
+msgstr " in english"
+
+#: pagepremium.php:83
+msgid "Demandes de traductions refusées :"
+msgstr "Translation requests refused :"
+
+#: pagepremium.php:104
+msgid "Demandes de traductions acceptées :"
+msgstr "Translation requests accepted :"
+
+#: pagepremium.php:106
+msgid "Le mot anglais "
+msgstr "The english word "
+
+#: pagepremium.php:106
+msgid " correspond au mot français "
+msgstr " correspond to the french word "
+
+#: pagetraducteur.php:28
+msgid "Mot à ajouter en base de donnée : "
+msgstr "Word to add in the database : "
+
+#: pagetraducteur.php:43
+msgid "Mot à ajouter en base de donnée :"
+msgstr "Word to add in the database :"
+
+#: pagetraducteur.php:69
+msgid "Demandes de traductions en attente :"
+msgstr "Translation requests ongoing :"
+
+#: pagetraducteur.php:74
+msgid " en français  "
+msgstr " in french "
+
+#: pagetraducteur.php:76 pagetraducteur.php:121
+msgid "Demande de traduction du mot français "
+msgstr "Translation request of the french word "
+
+#: pagetraducteur.php:76
+msgid " en anglais  "
+msgstr " in english "
+
+#: pagetraducteur.php:94
+msgid "Traductions en base de données acceptées :"
+msgstr "Translations in database accepted :"
+
+#: pagetraducteur.php:97
+msgid "Traduction du mot français "
+msgstr "Translation of the french word "
+
+#: pagetraducteur.php:97
+msgid " en anglais :  "
+msgstr " in english :  "
+
+#: pagetraducteur.php:116
+msgid "Traductions refusées :"
+msgstr "Translations refused :"
+
+#: pagetraducteur.php:119
+msgid " en français "
+msgstr " in french "
+
+#: pagetraducteur.php:121
+msgid " en anglais "
+msgstr " in english "
+
+#: pagetraducteur.php:126
+msgid "Exporter une langue"
+msgstr "Export a language"
+
+#: pagetraducteur.php:134
+msgid "Cliquez ici pour telecharger votre exportation (voir au dessus)"
+msgstr "Clic here to download your export (look above)"
+
+#: utils.inc.php:56
+msgid "Accueil"
+msgstr "Home"
+
+#: validationInscription.php:15
+msgid "Code d'activation reçu par e-mail"
+msgstr "Activation code received on your mail"
+
+#: verifCodeOk.php:10
+msgid "Vérification effectuée √"
+msgstr "Checking done √"
+
+#: verifCodeOk.php:11
+msgid "Retourner à l'accueil"
+msgstr "Return to home"
+
+#~ msgid "Mentions légales"
+#~ msgstr "Terms and conditions"
