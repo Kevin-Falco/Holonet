@@ -19,8 +19,7 @@
         }
         if(!isset($_SESSION['categorie']))
             setcookie('tempotrad', '10 minutes', time() + 60*10);
-        $mot= $_POST['mot'];
-        $langue= $_POST['lang'];
+
 
         $dbHost = 'mysql-bestsithever.alwaysdata.net';
         $dbLogin = '149556_holoadmin';
@@ -33,6 +32,9 @@
 
         mysqli_select_db($dbLink, $dbBd)
         or die('Erreur dans la sélection de la base : ' . mysqli_error($dbLink));
+
+        $mot= $dbLink->real_escape_string ($_POST['mot']);
+        $langue= $dbLink->real_escape_string ($_POST['lang']);
 
         if ($langue == 'francais') {$query = 'SELECT * FROM traduction WHERE fr =\'' . $mot . '\'';}
         else {$query = 'SELECT * FROM traduction WHERE en =\'' . $mot . '\'';}

@@ -18,8 +18,8 @@
         mysqli_select_db($dbLink, $dbBd)
         or die('Erreur dans la sélection de la base : ' . mysqli_error($dbLink));
 
-        $action = $_POST['action'];
-        $email = $_POST['email'];
+        $action = $dbLink->real_escape_string ($_POST['action']);
+        $email = $dbLink->real_escape_string ($_POST['email']);
 
         if ($action == 'Supprimer') {
             $query = 'DELETE FROM user WHERE email = \'' . $email . '\'';

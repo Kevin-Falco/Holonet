@@ -7,7 +7,7 @@
     if($action == 'mailer') {
         $a_z = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
         $mdp = '0' . $a_z[mt_rand(0,51)] . mt_rand(0,9) . mt_rand(0,9) . $a_z[mt_rand(0,51)] . mt_rand(0,9) . mt_rand(0,9) . $a_z[mt_rand(0,51)] . mt_rand(0,9);
-        $email= $_POST['email'];
+
 
         $dbHost = 'mysql-bestsithever.alwaysdata.net';
         $dbLogin = '149556_holoadmin';
@@ -21,7 +21,9 @@
         mysqli_select_db($dbLink, $dbBd)
         or die('Erreur dans la sélection de la base : ' . mysqli_error($dbLink));
 
-        $query = 'SELECT email FROM user WHERE email = ' . '\'' . $email . '\'';
+        $email= $dbLink->real_escape_string ($_POST['email']);
+
+        $query = 'SELECT email FROM user WHERE email = \'' . $email . '\'';
         $dbResult = mysqli_query($dbLink, $query);
 
         if (mysqli_num_rows($dbResult) == 0) {
@@ -32,7 +34,7 @@
             $message= 'Voici votre nouveau mot de passe : '. $mdp;
             mail($email, 'Mot de passe oublié', $message);
 
-            $query = 'UPDATE  user SET motdepasse =' . '\'' . md5($mdp) . '\'' . 'WHERE email = ' . '\'' . $email . '\'';
+            $query = 'UPDATE  user SET motdepasse =\'' . md5($mdp) . '\'' . 'WHERE email = \'' . $email . '\'';
             mysqli_query($dbLink, $query);
 
             header('Location: connexion.php');

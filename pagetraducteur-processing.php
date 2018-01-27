@@ -11,19 +11,25 @@ $dbPass = 'kyloben';
 
 $dbBd = 'bestsithever_holocron';
 
+
+
 $dbLink = mysqli_connect($dbHost, $dbLogin, $dbPass)
 or die('Erreur de connexion dans la base : ' . mysqli_error($dbLink));
 
 mysqli_select_db($dbLink, $dbBd)
 or die('Erreur dans la sélection de la base : ' . mysqli_error($dbLink));
 
+$trad = $dbLink->real_escape_string ($_POST['trad']);
+$mot = $dbLink->real_escape_string ($_POST['mot']);
+$id = intval($_POST('id'));
+
 if($_POST['action'] == 'Envoyer'){
     if($_POST['lang'] ==  'francais')
         $query = 'INSERT INTO traduction (pseudo, fr, en, etat) 
-        VALUES (\'N/D\', \'' . $_POST['trad'] .'\', \'' . $_POST['trad'] .'\', \'accepté\')';
+        VALUES (\'N/D\', \'' . $trad .'\', \'' . $trad .'\', \'accepté\')';
     else
         $query = 'INSERT INTO traduction (pseudo, fr, en, etat) 
-        VALUES (\'N/D\', \'' . $_POST['trad'] .'\', \'' . $_POST['mot'] .'\', \'accepté\')';
+        VALUES (\'N/D\', \'' . $trad .'\', \'' . $mot .'\', \'accepté\')';
 
     if(!$dbResult = mysqli_query($dbLink, $query))
     {
@@ -49,7 +55,7 @@ else if($_POST['action'] == 'Résoudre') {
     }
 }
 else if($_POST['action'] == 'Refuser'){
-    $query = 'UPDATE traduction SET etat = \'refusé\' WHERE id = \'' . $_POST['id'] . '\'';
+    $query = 'UPDATE traduction SET etat = \'refusé\' WHERE id = \'' . $id . '\'';
     if(!($dbResult = mysqli_query($dbLink, $query)))
     {
         echo 'Erreur dans requête<br />';
@@ -74,7 +80,7 @@ else if($_POST['action'] == 'Changer la traduction en'){
     $_SESSION['mot2'] = $_POST['en'];
     $_SESSION['selected'] = 'fr';
 }else if($_POST['action'] == 'Supprimer'){
-    $query = 'DELETE FROM traduction WHERE id = \'' . $_POST['id'] . '\'';
+    $query = 'DELETE FROM traduction WHERE id = \'' . $id . '\'';
     if(!($dbResult = mysqli_query($dbLink, $query)))
     {
         echo 'Erreur dans requête<br />';
@@ -86,10 +92,10 @@ else if($_POST['action'] == 'Changer la traduction en'){
     }
 }else if($_POST['action'] == 'Valider'){
     if($_POST['lang'] == 'francais'){
-        $query = 'UPDATE traduction SET en = \'' . $_POST['trad'] . '\', etat=\'accepté\' WHERE id = \'' . $_SESSION['tradid'] . '\'';
+        $query = 'UPDATE traduction SET en = \'' . $trad . '\', etat=\'accepté\' WHERE id = \'' . intval($_SESSION['tradid']) . '\'';
     }
     else {
-        $query = 'UPDATE traduction SET fr = \'' . $_POST['trad'] . '\', etat=\'accepté\' WHERE id = \'' . $_SESSION['tradid'] . '\'';
+        $query = 'UPDATE traduction SET fr = \'' . $trad . '\', etat=\'accepté\' WHERE id = \'' . intval($_SESSION['tradid']) . '\'';
     }
 
     if(!($dbResult = mysqli_query($dbLink, $query)))

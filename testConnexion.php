@@ -5,9 +5,6 @@
     $action = $_POST['action'];
 
     if($action == 'connexion') {
-        $email= $_POST['email'];
-        $mdp= $_POST['mdp'];
-
         $dbHost = 'mysql-bestsithever.alwaysdata.net';
         $dbLogin = '149556_holoadmin';
         $dbPass = 'kyloben';
@@ -20,6 +17,9 @@
         mysqli_select_db($dbLink, $dbBd)
         or die('Erreur dans la sélection de la base : ' . mysqli_error($dbLink));
 
+        $email= $dbLink->real_escape_string ($_POST['email']);
+        $mdp= $dbLink->real_escape_string (md5($_POST['mdp']));
+
         $query = 'SELECT * FROM user WHERE email = ' . '\'' . $email . '\'';
 
         $dbResult = mysqli_query($dbLink, $query);
@@ -29,10 +29,10 @@
         }
 
         if($dbRow = mysqli_fetch_assoc($dbResult)) {
-            if (md5($mdp) == $dbRow['motdepasse']) {
+            if ($mdp == $dbRow['motdepasse']) {
                 $_SESSION['pseudo'] = $dbRow['pseudo'];
                 $_SESSION['email'] = $email;
-                $_SESSION['mdp'] = md5($mdp);
+                $_SESSION['mdp'] = $mdp;
                 $_SESSION['categorie'] = $dbRow['categorie'];
 
                 if($dbRow['valider']) {

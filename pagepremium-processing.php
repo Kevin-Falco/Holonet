@@ -5,6 +5,8 @@ if($_SESSION['categorie'] != 'premium' && $_SESSION['categorie'] != 'traducteur'
     exit();
 }
 
+
+
 $dbHost = 'mysql-bestsithever.alwaysdata.net';
 $dbLogin = '149556_holoadmin';
 $dbPass = 'kyloben';
@@ -17,15 +19,17 @@ or die('Erreur de connexion dans la base : ' . mysqli_error($dbLink));
 mysqli_select_db($dbLink, $dbBd)
 or die('Erreur dans la sélection de la base : ' . mysqli_error($dbLink));
 
+$pseudo = $dbLink->real_escape_string ($_SESSION['pseudo']);
+$mot = $dbLink->real_escape_string ($_POST['mot']);
 
 if($_POST['action'] == 'Demander'){
     if($_POST['lang'] == 'francais'){
         $query = 'INSERT INTO traduction (pseudo, fr, etat) 
-        VALUES (\'' . $_SESSION['pseudo'] .'\', \'' . $_POST['mot'] .'\', \'en cours\')';
+        VALUES (\'' . $pseudo .'\', \'' . $mot .'\', \'en cours\')';
     }
     else {
         $query = 'INSERT INTO traduction (pseudo, en, etat) 
-        VALUES (\'' . $_SESSION['pseudo'] .'\', \'' . $_POST['mot'] .'\', \'en cours\')';
+        VALUES (\'' . $pseudo .'\', \'' . $mot .'\', \'en cours\')';
     }
     if(!$dbResult = mysqli_query($dbLink, $query))
     {
@@ -43,8 +47,8 @@ if($_POST['action'] == 'Demander'){
 
 }
 else if($_POST['action'] == 'Détecter'){
-    $query = 'SELECT * FROM traduction WHERE en =\'' . $_POST['mot'] .
-        '\' OR fr=\'' . $_POST['mot'] . '\'';
+    $query = 'SELECT * FROM traduction WHERE en =\'' . $mot .
+        '\' OR fr=\'' . $mot . '\'';
     if(!$dbResult = mysqli_query($dbLink, $query))
     {
         echo 'Erreur dela requête<br/>';

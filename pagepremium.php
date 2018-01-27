@@ -23,10 +23,12 @@ or die('Erreur dans la sélection de la base : ' . mysqli_error($dbLink));
 debut_page();
 barre_Navigation();
 
+$pseudo = $dbLink->real_escape_string ($_SESSION['pseudo']);
+
 ?>
 <form action="pagepremium-processing.php" method="post">
     Détecter la langue d'un mot : <br>
-    <input type="text" name="mot"><?php echo $_SESSION['detect']; $_SESSION['detect'] = ''?><br>
+    <input type="text" name="mot"><?= $_SESSION['detect']; $_SESSION['detect'] = ''?><br>
     <input type="submit" name="action" value="Détecter"><br>
 </form>
 
@@ -44,7 +46,7 @@ barre_Navigation();
 if(isset($_SESSION['demande_reussie']))
     echo $_SESSION['demande_reussie']; $_SESSION['demande_reussie'] = '';
 
-$query = 'SELECT * FROM traduction WHERE pseudo =\'' . $_SESSION['pseudo'] . '\' AND
+$query = 'SELECT * FROM traduction WHERE pseudo =\'' . $pseudo . '\' AND
     etat = \'en cours\'';
 if(!$dbResult = mysqli_query($dbLink, $query))
 {
@@ -63,7 +65,7 @@ while($dbRow = mysqli_fetch_assoc($dbResult)){
         echo 'Demande de traduction du mot français ' . $dbRow['fr'] . ' en anglais <br> ';
 }
 
-$query = 'SELECT * FROM traduction WHERE pseudo =\'' . $_SESSION['pseudo'] . '\' AND
+$query = 'SELECT * FROM traduction WHERE pseudo =\'' . $pseudo . '\' AND
     etat = \'refusé\'';
 
 if(!$dbResult = mysqli_query($dbLink, $query))
@@ -84,7 +86,7 @@ while($dbRow = mysqli_fetch_assoc($dbResult)){
 }
 
 
-$query = 'SELECT * FROM traduction WHERE pseudo =\'' . $_SESSION['pseudo'] . '\' AND
+$query = 'SELECT * FROM traduction WHERE pseudo =\'' . $pseudo . '\' AND
     etat = \'accepté\'';
 
 if(!$dbResult = mysqli_query($dbLink, $query))
