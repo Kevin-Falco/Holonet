@@ -120,3 +120,15 @@ while($dbRow = mysqli_fetch_assoc($dbResult)){
     else
         echo 'Demande de traduction du mot français ' . htmlspecialchars($dbRow['fr']) . ' en anglais <br> ';
 }
+
+?>
+
+<br>Exporter une langue
+<form action="pagetraducteur-processing.php" method="post">
+    <select name="langexport">
+        <option value="fr">Francais</option>
+        <option value="en">Anglais</option>
+    </select>
+    <input type="submit" name="action" value="Export">
+</form>
+<a href="lang/<?php echo $_SESSION['langexport']. '.po' ?>" download>Cliquez ici pour telecharger votre exportation (voir au dessus)</a>
