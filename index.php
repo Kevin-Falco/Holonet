@@ -21,13 +21,13 @@
             <div class="item active">
                 <img src="img/cote_obscur.jpg" alt="Côté obscur" style="height: 288px; width: 600px;">
                 <div class="carousel-caption">
-                    <h3>Passez du côté obscur de la force</h3>
+                    <h3><?=gettext('Passez du côté obscur de la force')?></h3>
                 </div>
             </div>
             <div class="item">
                 <img src="img/cote_lumineux.jpg" alt="Côté lumineux" style="height: 288px; width: 600px;">
                 <div class="carousel-caption">
-                    <h3>Que la force soit avec vous</h3>
+                    <h3><?= gettext('Que la force soit avec vous')?></h3>
                 </div>
             </div>
         </div>
