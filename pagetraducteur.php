@@ -25,11 +25,11 @@ if(!isset($_SESSION['request'])){
 ?>
 
 <form action="pagetraducteur-processing.php" method="post">
-    Mot à ajouter en base de donnée : <br>
+    <?= gettext('Mot à ajouter en base de donnée : ')?><br>
     <input type="text" name="mot">
-    Langue : <select name="lang" id="">
-        <option value="francais"> Francais </option>
-        <option value="anglais"> Anglais </option>
+    <?= gettext('Langue : ')?> <select name="lang" id="">
+        <option value="francais"> <?= gettext('Francais')?> </option>
+        <option value="anglais"> <?= gettext('Anglais')?> </option>
     </select><br>
     <input type="text" name="trad"><br>
     <input type="submit" name="action" value="Envoyer"><br>
@@ -40,11 +40,11 @@ if(!isset($_SESSION['request'])){
 else {
     ?>
     <form action="pagetraducteur-processing.php" method="post">
-        Mot à ajouter en base de donnée : <br>
+        <?= gettext('Mot à ajouter en base de donnée :')?> <br>
         <input type="text" name="mot" value="<?= htmlspecialchars($_SESSION['mot1']) ?>">
-        Langue : <select name="lang" id="">
-            <option value="francais" <?= htmlspecialchars(($_SESSION['selected']) == 'fr' ? 'selected' : '' )  ?>> Francais </option>
-            <option value="anglais" <?= htmlspecialchars(($_SESSION['selected']) == 'en' ? 'selected' : '' )  ?>> Anglais </option>
+        <?= gettext('Langue : ')?> <select name="lang" id="">
+            <option value="francais" <?= htmlspecialchars(($_SESSION['selected']) == 'fr' ? 'selected' : '' )  ?>> <?= gettext('Francais')?> </option>
+            <option value="anglais" <?= htmlspecialchars(($_SESSION['selected']) == 'en' ? 'selected' : '' )  ?>> <?= gettext('Anglais')?> </option>
         </select><br>
         <input type="text" name="trad"><br>
         <input type="submit" name="action" value="Valider"><br>
@@ -66,14 +66,14 @@ if(!$dbResult = mysqli_query($dbLink, $query))
     exit();
 }
 
-echo '<br>Demandes de traductions en attente : <br> ';
+echo '<br>' . gettext('Demandes de traductions en attente :') . ' <br> ';
 
 while($dbRow = mysqli_fetch_assoc($dbResult)){
     echo '<form action="pagetraducteur-processing.php" method="post"> ';
     if(empty($dbRow['fr']))
-        echo 'Demande de traduction du mot anglais ' . htmlspecialchars($dbRow['en']) . ' en français  ';
+        echo gettext('Demande de traduction du mot anglais ') . htmlspecialchars($dbRow['en']) . gettext(' en français  ');
     else
-        echo 'Demande de traduction du mot français ' . htmlspecialchars($dbRow['fr']) . ' en anglais  ';
+        echo gettext('Demande de traduction du mot français ') . htmlspecialchars($dbRow['fr']) . gettext(' en anglais  ');
     echo '<input type="submit" name="action" value="Résoudre" >
             <input type="submit" name="action" value="Refuser">
             <input type="hidden" name="id" value="' . htmlspecialchars($dbRow['id'])  .'">
@@ -91,10 +91,10 @@ if(!$dbResult = mysqli_query($dbLink, $query))
     echo 'Requête : ' . htmlspecialchars($query) . '<br/>';
     exit();
 }
-echo '<br>Traductions en base de données acceptées : <br> ';
+echo '<br>' . gettext('Traductions en base de données acceptées :') . ' <br> ';
 while($dbRow = mysqli_fetch_assoc($dbResult)){
     echo '<form action="pagetraducteur-processing.php" method="post"> ';
-    echo 'Traduction du mot français ' .htmlspecialchars( $dbRow['fr']) . ' en anglais :  ' . htmlspecialchars($dbRow['en']) . '<br>';
+    echo gettext('Traduction du mot français ') .htmlspecialchars( $dbRow['fr']) . gettext(' en anglais :  ') . htmlspecialchars($dbRow['en']) . '<br>';
     echo '<input type="submit" name="action" value="Changer la traduction fr" >
             <input type="submit" name="action" value="Changer la traduction en">
             <input type="submit" name="action" value="Supprimer">
@@ -113,22 +113,22 @@ if(!$dbResult = mysqli_query($dbLink, $query))
     echo 'Requête : ' . htmlspecialchars($query) . '<br/>';
     exit();
 }
-echo '<br>Traductions refusées : <br> ';
+echo '<br>' . gettext('Traductions refusées :') . ' <br> ';
 while($dbRow = mysqli_fetch_assoc($dbResult)){
     if(empty($dbRow['fr']))
-        echo 'Demande de traduction du mot anglais ' . htmlspecialchars($dbRow['en']) . ' en français <br> ';
+        echo gettext('Demande de traduction du mot anglais ') . htmlspecialchars($dbRow['en']) . gettext(' en français ') . ' <br> ';
     else
-        echo 'Demande de traduction du mot français ' . htmlspecialchars($dbRow['fr']) . ' en anglais <br> ';
+        echo gettext('Demande de traduction du mot français ') . htmlspecialchars($dbRow['fr']) . gettext(' en anglais ') . ' <br> ';
 }
 
 ?>
 
-<br>Exporter une langue
+<br> <?= gettext('Exporter une langue') ?>
 <form action="pagetraducteur-processing.php" method="post">
     <select name="langexport">
-        <option value="fr">Francais</option>
-        <option value="en">Anglais</option>
+        <option value="fr"><?= gettext('Francais')?></option>
+        <option value="en"><?= gettext('Anglais')?></option>
     </select>
     <input type="submit" name="action" value="Export">
 </form>
-<a href="lang/<?php echo $_SESSION['langexport']. '.po' ?>" download>Cliquez ici pour telecharger votre exportation (voir au dessus)</a>
+<a href="lang/<?php echo $_SESSION['langexport']. '.po' ?>" download><?= gettext('Cliquez ici pour telecharger votre exportation (voir au dessus)')?></a>
