@@ -38,14 +38,7 @@ if($action == 'Traduire')
 
     if ($langue == 'francais')
     {
-        if($_SESSION['categorie'] == 'premium')
-        {
-            $query = "SELECT * FROM traduction WHERE MATCH(en) AGAINST ('".$mot."')";
-        }
-        else
-        {
-            $query = 'SELECT * FROM traduction WHERE fr =\'' . $mot . '\'';
-        }
+        $query = 'SELECT * FROM traduction WHERE fr =\'' . $mot . '\'';
     }
     else {$query = 'SELECT * FROM traduction WHERE en =\'' . $mot . '\'';}
 

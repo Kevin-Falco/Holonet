@@ -36,7 +36,6 @@
                 $_SESSION['categorie'] = $dbRow['categorie'];
 
                 if($dbRow['valider']) {
-                    setcookie('tempotrad', NULL, -1);
                     header('Location: index.php');
                     exit;
                 }

@@ -25,8 +25,8 @@
         $dbResult = mysqli_query($dbLink, $query);
         while ($dbRow = mysqli_fetch_assoc($dbResult)) {
             echo '<tr>
-                <td>' . htmlspecialchars($dbRow['email']) . '</td>
-                <td>' . htmlspecialchars($dbRow['categorie']) . '</td>
+                <td>' . $dbRow['email'] . '</td>
+                <td>' . $dbRow['categorie'] . '</td>
                 <td>
                     <div class="dropdown">
                         <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Catégorie</button>
@@ -36,7 +36,7 @@
                                 <input class="dropdown-item" type="submit" name="action" value="Standard"/>
                                 <input class="dropdown-item" type="submit" name="action" value="Premium"/>
                                 <input class="dropdown-item" type="submit" name="action" value="Traducteur"/>
-                                <input type="hidden" name="email" value="' . htmlspecialchars($dbRow['email']) . '"/>
+                                <input type="hidden" name="email" value="' . $dbRow['email'] . '"/>
                             </form>
                         </div>
                     </div>
