@@ -7,7 +7,9 @@
  */
     session_start();
 
-    $action = $_POST['Traduire'];
+    $action = $_POST['action'];
+
+
 
     if($action == 'Traduire')
     {
@@ -26,8 +28,8 @@
         mysqli_select_db($dbLink, $dbBd)
         or die('Erreur dans la sélection de la base : ' . mysqli_error($dbLink));
 
-        if ($langue == 'francais') {$query = 'SELECT * FROM user WHERE fr = ' . '\'' . $mot . '\'';}
-        else {$query = 'SELECT * FROM user WHERE en = ' . '\'' . $mot . '\'';}
+        if ($langue == 'francais') {$query = 'SELECT * FROM traduction WHERE fr =\'' . $mot . '\'';}
+        else {$query = 'SELECT * FROM user WHERE en =\'' . $mot . '\'';}
 
         if(!$dbResult = mysqli_query($dbLink, $query))
         {
@@ -43,20 +45,27 @@
         {
             if (mysqli_num_rows($dbResult) == 0)
             {
-                header('Location: connexion.php?step=ERROR_EMAIL');
-                exit;
+                $_SESSION['trad_sentence'] = 'Le mot demandé n\'a pas encore été traduit.';
+                header('Location: page1.php');
+                exit();
             }
 
             if($dbRow = mysqli_fetch_assoc($dbResult))
             {
                 if ($langue == 'francais')
                 {
-                    echo ($mot.' signifie '.$dbRow['fr']);
+                    $_SESSION['trad_sentence'] = ' Le mot français ' . $mot . ' signifie '
+                        . $dbRow['en'] . ' en anglais.';
+
+                    header('Location: page1.php');
+                    exit();
                 }
                 else
                 {
-                    echo ($mot.' signifie '.$dbRow['en']);
-                    exit;
+                    $_SESSION['trad_sentence'] = ' Le mot anglais ' . $mot . ' signifie '
+                        . $dbRow['fr'] . ' en français.';
+                    header('Location: page1.php');
+                    exit();
                 }
             }
         }

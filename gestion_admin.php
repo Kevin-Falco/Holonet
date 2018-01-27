@@ -1,3 +1,4 @@
+<!-- Cette page a été traitée -->
 <?php
     include 'trad.php';
     include 'utils.inc.php';
@@ -5,11 +6,6 @@
     session_start();
 
     if (isset($_SESSION['categorie']) && $_SESSION['categorie'] == 'admin') {
-
-        if ($_SESSION['login'] == 'ok') {
-            echo 'Magecraft : ' . $_SESSION['pseudo'];
-        }
-
         $dbHost = 'mysql-bestsithever.alwaysdata.net';
         $dbLogin = '149556_holoadmin';
         $dbPass = 'kyloben';

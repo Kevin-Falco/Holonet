@@ -1,17 +1,12 @@
+<!-- Cette page a été traitée -->
 <?php
     include 'trad.php';
     include 'utils.inc.php';
 
-    session_start();
     debut_page();
 
     if (isset($_SESSION['pseudo']) && $_SESSION['categorie'] == 'admin') {
-
-        barre_Navigation(3); //__FILE__
-
-        if($_SESSION['login'] == 'ok') {
-            echo 'Magecraft : ' . $_SESSION['pseudo'];
-        }
+        barre_Navigation(4);
 
         $dbHost = 'mysql-bestsithever.alwaysdata.net';
         $dbLogin = '149556_holoadmin';

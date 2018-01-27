@@ -1,10 +1,10 @@
+<!-- Cette page a été traitée -->
 <?php
     session_start();
 
     $action = $_POST['action'];
 
-    if($action == 'Valider')
-    {
+    if($action == 'Valider') {
         $pseudo= $_POST['pseudo'];
         $email= $_POST['email'];
         $mdp= $_POST['mdp'];
@@ -26,57 +26,31 @@
         or die('Erreur dans la sélection de la base : ' . mysqli_error($dbLink));
 
         $query = 'SELECT * FROM user WHERE email = ' . '\'' . $email . '\'';
+        $dbResult = mysqli_query($dbLink, $query);
 
-        if(!$dbResult = mysqli_query($dbLink, $query))
-        {
-            echo 'Erreur dela requête<br/>';
-            //Type erreur
-            echo 'Erreur : ' . mysqli_error($dbLink) . '<br/>';
-            //Affiche requête envoyée
-            echo 'Requête : ' . $query . '<br/>';
-            exit();
-
-        }
-
-        if($dbRow = mysqli_fetch_assoc($dbResult))
-        {
-            if($email == $dbRow['email'])
-            {
+        if($dbRow = mysqli_fetch_assoc($dbResult)) {
+            if($email == $dbRow['email']) {
                 header('Location: inscription.php?step=EMAIL_EXIST');
                 exit;
             }
         }
 
-        if($verifmdp != $mdp)
-        {
+        if($verifmdp != $mdp) {
             header('Location: ../pages/inscription.php?step=BAD_MDP');
             exit;
         }
 
         $query = 'INSERT INTO user (pseudo, email, motdepasse, categorie, code, valider) VALUES (\'' . $pseudo . '\', \'' . $email . '\', \'' . md5($mdp) . '\',\'' . $status . '\', ' . $code . ', ' . 0  . ')';
+        $dbResult = mysqli_query($dbLink, $query);
 
-        if(!$dbResult = mysqli_query($dbLink, $query))
-        {
-            echo 'Erreur dela requête<br/>';
-            //Type erreur
-            echo 'Erreur : ' . mysqli_error($dbLink) . '<br/>';
-            //Affiche requête envoyée
-            echo 'Requête : ' . $query . '<br/>';
-            exit();
+        $message = 'Voici le code pour finaliser votre inscription : ' . PHP_EOL;
+        $message .= $code . PHP_EOL;
+        mail($email, "Code d'activation",$message);
 
-        }
-        else
-        {
-            $message = 'Voici le code pour finaliser votre inscription : ' . PHP_EOL;
-            $message .= $code . PHP_EOL;
-            mail($email, "Code d'activation",$message);
-
-            $_SESSION['pseudo'] = $pseudo;
-            $_SESSION['email'] = $email;
-            $_SESSION['mdp'] = md5($mdp);
-            header('Location: validationInscription.php');
-            exit;
-        }
+        $_SESSION['pseudo'] = $pseudo;
+        $_SESSION['email'] = $email;
+        $_SESSION['mdp'] = md5($mdp);
+        header('Location: validationInscription.php');
+        exit;
     }
-
 ?>

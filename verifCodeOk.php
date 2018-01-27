@@ -1,20 +1,14 @@
+<!-- Cette page a été traitée -->
 <?php
-include 'utils.inc.php';
-include 'trad.php';
+    include 'trad.php';
+    include 'utils.inc.php';
 
-session_start();
-debut_page();
+    debut_page();
+
+    barre_Navigation(4);
 ?>
-
-    <header>
-        <!-- Vide -->
-    </header>
-
-<?php barre_Navigation(2); //__FILE__?>
-
-    <label><?php echo gettext('Vérification effectuée √'); ?></label><br/>
-    <a href="index.php"><?php echo gettext('Retourner à l\'accueil') ?></a>
-
+<label><?= gettext('Vérification effectuée √'); ?></label><br/>
+<a href="index.php"><?= gettext('Retourner à l\'accueil') ?></a>
 <?php
-fin_page();
+    fin_page();
 ?>

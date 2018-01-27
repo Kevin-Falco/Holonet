@@ -1,12 +1,10 @@
+<!-- Cette page a été traitée -->
 <?php
     include 'utils.inc.php';
 
-    session_start();
-
     $action = $_POST['action'];
 
-    if($action == 'Valider')
-    {
+    if($action == 'Valider') {
         $code= $_POST['code'];
 
         $dbHost = 'mysql-bestsithever.alwaysdata.net';
@@ -23,45 +21,19 @@
 
         $query = 'SELECT * FROM user WHERE email = ' . '\'' . $_SESSION['email'] . '\'';
 
-        if(!$dbResult = mysqli_query($dbLink, $query))
-        {
-            echo 'Erreur dela requête<br/>';
-            //Type erreur
-            echo 'Erreur : ' . mysqli_error($dbLink) . '<br/>';
-            //Affiche requête envoyée
-            echo 'Requête : ' . $query . '<br/>';
-            exit();
+        $dbResult = mysqli_query($dbLink, $query);
 
-        }
-        else
-        {
-            if($dbRow = mysqli_fetch_assoc($dbResult))
-            {
-                if ($code == $dbRow['code'])
-                {
-                    $query = 'UPDATE user set valider = 1 WHERE email = ' . '\'' . $_SESSION['email'] . '\'';
-
-                    if(!$dbResult = mysqli_query($dbLink, $query))
-                    {
-                        echo 'Erreur dela requête<br/>';
-                        //Type erreur
-                        echo 'Erreur : ' . mysqli_error($dbLink) . '<br/>';
-                        //Affiche requête envoyée
-                        echo 'Requête : ' . $query . '<br/>';
-                        exit();
-
-                    }
-
-                    header('Location: verifCodeOk.php');
-                    exit;
-                }
-                else
-                {
-                    header('Location: validationInscription.php?step=ERROR');
-                    exit;
-                }
+        if($dbRow = mysqli_fetch_assoc($dbResult)) {
+            if ($code == $dbRow['code']) {
+                $query = 'UPDATE user set valider = 1 WHERE email = ' . '\'' . $_SESSION['email'] . '\'';
+                mysqli_query($dbLink, $query);
+                header('Location: verifCodeOk.php');
+                exit;
+            }
+            else {
+                header('Location: validationInscription.php?step=ERROR');
+                exit;
             }
         }
     }
-
 ?>
