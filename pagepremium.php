@@ -1,5 +1,8 @@
 <?php
+
+include 'trad.php';
 include 'utils.inc.php';
+
 if($_SESSION['categorie'] != 'premium' && $_SESSION['categorie'] != 'traducteur' && $_SESSION['categorie'] != 'admin' ){
     header('Location: page1.php');
     exit();
@@ -27,17 +30,17 @@ $pseudo = $dbLink->real_escape_string ($_SESSION['pseudo']);
 
 ?>
 <form action="pagepremium-processing.php" method="post">
-    Détecter la langue d'un mot : <br>
+    <?= gettext('Détecter la langue d\'un mot :')?> <br>
     <input type="text" name="mot"><?= htmlspecialchars($_SESSION['detect']); $_SESSION['detect'] = ''?><br>
     <input type="submit" name="action" value="Détecter"><br>
 </form>
 
 <form action="pagepremium-processing.php" method="post">
-    Mot à demander : <br>
+    <?= gettext('Mot à demander :')?> <br>
     <input type="text" name="mot"><br>
-    Langue : <select name="lang" id="">
-        <option value="francais"> Francais </option>
-        <option value="anglais"> Anglais </option>
+    <?= gettext('Langue : ')?> <select name="lang" id="">
+        <option value="francais"> <?= gettext('Francais')?> </option>
+        <option value="anglais"> <?= gettext('Anglais')?> </option>
     </select><br>
     <input type="submit" name="action" value="Demander"><br>
 </form>
@@ -57,12 +60,12 @@ if(!$dbResult = mysqli_query($dbLink, $query))
     echo 'Requête : ' . htmlspecialchars($query) . '<br/>';
     exit();
 }
-echo 'Demandes de traductions en cours : <br> ';
+echo gettext('Demandes de traductions en cours :') . ' <br> ';
 while($dbRow = mysqli_fetch_assoc($dbResult)){
     if(empty($dbRow['fr']))
-        echo 'Demande de traduction du mot anglais ' . htmlspecialchars($dbRow['en']) . ' en français <br> ';
+        echo gettext('Demande de traduction du mot anglais ') . htmlspecialchars($dbRow['en']) . gettext(' en français') . ' <br> ';
     else
-        echo 'Demande de traduction du mot français ' . htmlspecialchars($dbRow['fr']) . ' en anglais <br> ';
+        echo gettext('Demande de traduction du mot francais ') . htmlspecialchars($dbRow['fr']) . gettext(' en anglais') . ' <br> ';
 }
 
 $query = 'SELECT * FROM traduction WHERE pseudo =\'' . $pseudo . '\' AND
@@ -77,12 +80,12 @@ if(!$dbResult = mysqli_query($dbLink, $query))
     echo 'Requête : ' . htmlspecialchars($query) . '<br/>';
     exit();
 }
-echo '<br> <br>Demandes de traductions refusées : <br> ';
+echo '<br> <br>' . gettext('Demandes de traductions refusées :') . ' <br> ';
 while($dbRow = mysqli_fetch_assoc($dbResult)){
     if(empty($dbRow['fr']))
-        echo 'Demande de traduction du mot anglais ' . htmlspecialchars($dbRow['en']) . ' en français <br> ';
+        echo gettext('Demande de traduction du mot anglais ') . htmlspecialchars($dbRow['en']) . gettext(' en français') . ' <br> ';
     else
-        echo 'Demande de traduction du mot français ' . htmlspecialchars($dbRow['fr']) . ' en anglais <br> ';
+        echo ettext('Demande de traduction du mot français ') . htmlspecialchars($dbRow['fr']) . gettext(' en anglais') . ' <br> ';
 }
 
 
@@ -98,14 +101,10 @@ if(!$dbResult = mysqli_query($dbLink, $query))
     echo 'Requête : ' . htmlspecialchars($query) . '<br/>';
     exit();
 }
-echo '<br> <br>Demandes de traductions acceptées : <br> ';
+echo '<br> <br>'. gettext('Demandes de traductions acceptées :') . ' <br> ';
 while($dbRow = mysqli_fetch_assoc($dbResult)){
-    echo 'Le mot anglais ' . htmlspecialchars($dbRow['en']) . ' correspond au mot français ' . htmlspecialchars($dbRow['fr']) . '<br> ';
+    echo gettext('Le mot anglais ') . htmlspecialchars($dbRow['en']) . gettext(' correspond au mot français ') . htmlspecialchars($dbRow['fr']) . '<br> ';
 }
-
-
-
-
 
 
 ?>
