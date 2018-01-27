@@ -29,8 +29,11 @@
 <?php
 }
 
-function fin_page() {
-    echo '</body>';
+function fin_page() { ?>
+    <footer>
+        <a href="http://bestsithever.alwaysdata.net/mentions.php">Mentions légales</a>
+    </footer>
+    <?php echo '</body>';
 }
 
 function barre_Navigation($pageActive = 0) {
