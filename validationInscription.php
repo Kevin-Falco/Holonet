@@ -12,7 +12,7 @@
     barre_Navigation(4);
 ?>
 <form action="verificationCode.php" method="post">
-    <label>Code d'activation reçu par e-mail</label><br/>
+    <label><?= gettext('Code d\'activation reçu par e-mail')?></label><br/>
     <input type="text"  name="code"/><br/>
     <input type="submit" name="action" value="Valider"/><br/>
 </form>
