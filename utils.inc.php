@@ -16,6 +16,7 @@
 
         <link rel="icon" type="image/png" href="/img/Favicon32x32.png" sizes="32x32" />
         <link rel="icon" type="image/png" href="/img/Favicon64x64.png" sizes="64x64" />
+        <!--[if IE]><link rel="shortcut icon" type="image/x-icon" href="img/Favicon32x32.ico" /><![endif]-->
 
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <link rel="stylesheet" href="css/style.css">
