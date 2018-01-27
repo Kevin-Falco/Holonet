@@ -5,8 +5,6 @@
  * @param String $email
  * @return array|int|null
  */
-
-
 function getUserDataByEmail($email)
 {
     $dbLink = db_connect();

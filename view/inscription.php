@@ -1,40 +1,31 @@
-<?php debut_page(); ?>
+<?php debut_page();
 
-    <?= $message_erreur ?>
+barre_Navigation(); ?>
 
-    <header>
-        <!-- Vide -->
-    </header>
-    <?php barre_Navigation(); //__FILE__?>
+<?= $message_erreur ?>
 
-    <label class="titre">Inscription</label>
-
+    <label class="titre"><?= gettext('Inscription'); ?></label>
     <div class="formulaire">
-
-        <form action="/controller/inscriptionModelController.php" method="post">
-
-            <label>Pseudo</label><br/>
+        <form action="../controller/inscriptionModelController.php" method="post">
+            <label><?= gettext('Pseudo'); ?></label><br/>
             <input type="text" name="pseudo" required><br/>
 
-            <label>Email</label><br/>
+            <label><?= gettext('Email'); ?></label><br/>
             <input type="email" name="email" required/><br/>
 
-            <label>Mot de passe</label><br/>
+            <label><?= gettext('Mot de passe'); ?></label><br/>
             <input type="password" name="mdp" required/><br/>
 
-
-            <label>Vérification mot de passe</label><br/>
+            <label><?= gettext('Vérification mot de passe'); ?></label><br/>
             <input type="password" name="verifmdp" required/><br/>
 
-            <label>Status</label><br/>
-            <input type="radio" name="status"  value="standard" required/>Standard<br/>
-            <input type="radio" name="status"  value="premium" required/>Premium<br/>
-            <input type="radio" name="status"  value="traducteur" required/>Traducteur<br/>
+            <label><?= gettext('Status'); ?></label><br/>
+            <input type="radio" name="status"  value="standard" required/><?= gettext('Standard'); ?><br/>
+            <input type="radio" name="status"  value="premium" required/><?= gettext('Premium'); ?><br/>
+            <input type="radio" name="status"  value="traducteur" required/><?= gettext('Traducteur'); ?><br/>
 
-            <label>Conditions générales</label> : <input type="checkbox" required/><br/>
-
+            <label><?=gettext('Conditions générales'); ?></label> : <input type="checkbox" required/><br/>
             <input type="submit" name="action" value="Valider"/><br/>
-
         </form>
     </div>
 

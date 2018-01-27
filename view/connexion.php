@@ -1,27 +1,22 @@
-<?php debut_page() ?>
+<?php
+debut_page();
 
-    <?= $message_erreur ;?>
+barre_Navigation(4);
 
-    <header>
-        <!-- Vide -->
-    </header>
-    <?php barre_Navigation(4); //__FILE__?>
+echo $message_erreur ;?>
 
-    <label class="titre">Connexion</label>
-
-
-    <form action="../controller/connexionModelController.php" method="post">
-
-        <label>Email</label><br/>
+    <label class="titre"><?= gettext('Connexion') ?></label>
+    <form action="/controller/connexionModelController.php" method="post">
+        <label><?= gettext('Email') ?></label><br/>
         <input type="text" name="email"><br/>
 
-        <label>Mot de passe</label><br/>
+        <label><?= gettext('Mot de passe') ?></label><br/>
         <input type="password" name="mdp"/><br/>
 
         <input type="submit" name="action" value="connexion"/><br/>
 
     </form>
-    <a href="../controller/modifMdpController.php">Mot de passe oublié ?</a>
-    <a href="../controller/inscriptionController.php">S'inscrire</a>
+    <a href="mdp_oublie.php"><?= gettext('Mot de passe oublié ?') ?></a>
+    <a href="inscription.php"><?= gettext('S\'inscrire') ?></a>
 
 <?php fin_page() ?>

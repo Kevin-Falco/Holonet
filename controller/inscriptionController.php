@@ -1,17 +1,17 @@
 <?php
-    require('utils.inc.php');
+require('../model/trad.php');
+require('utils.inc.php');
 
-    if ($_GET['step'] == 'EMAIL_EXIST')
-    {
-        $message_erreur = 'Erreur, e-mail déjà utilisé.';
+if (isset($_GET['step'])) {
+    if ($_GET['step'] == 'EMAIL_EXIST') {
+        echo 'Erreur, e-mail déjà utilisé.';
+    } else if ($_GET['step'] == 'BAD_MDP') {
+        echo 'Mot de passes non identiques.';
     }
-    else if($_GET['step'] == 'BAD_MDP')
-    {
-        $message_erreur =  'Mot de passes non identiques.';
-    }
-    else
-    {
-        $message_erreur = "";
-    }
+}
+else
+{
+    $message_erreur = "";
+}
 
-    require('../view/inscription.php');
+require('../view/inscription.php');

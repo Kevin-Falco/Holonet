@@ -3,7 +3,7 @@ function verificationCode($email)
 {
     $dbLink = db_connect();
 
-    $query = 'UPDATE user set valider = 1 WHERE email = \'' . $email . '\'';
+    $query = 'UPDATE user set valider = 1 WHERE email = \'' . $dbLink->real_escape_string ($email) . '\'';
 
     if(!$dbResult = mysqli_query($dbLink, $query))
     {

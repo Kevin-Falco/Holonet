@@ -1,87 +1,50 @@
-<?php debut_page() ?>
+<?php
+debut_page();
 
-    <header>
-        <!-- Vide -->
-    </header>
-    <?php barre_Navigation(0); //__FILE__?>
+barre_Navigation(1);
+?>
+    <div class="container">
+        <div id="myCarousel" class="carousel slide" data-ride="carousel">
 
-    <div class="container-fluid">
-        <p><?= 'Mettre du texte à la place des balises br. PS : le bootstrap c\'est bien et normalement le site est responsive (pour l\'instant)'?></p>
-        <p> <?= gettext('Bonjour et bienvenue sur le Best Sith Ever, votre site de traduction préféré.'); echo gettext("\tCeci est une présentation très ravissante!") ?></p>
-        <?php foreach($_POST['locales'] as $l) {
-            print "[<a href=\"?lang=$l\">$l</a>] ";
-        }
-        print "</p>\n"; ?>
-        <div class="row">
-            <div class="col-xs-1 col-sm-4"></div>
-            <div class="col-xs-10 col-sm-4 used">
-                <p>Yo la millefa</p>
+            <!-- Indicators -->
+            <ol class="carousel-indicators">
+                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                <li data-target="#myCarousel" data-slide-to="1"></li>
+            </ol>
+
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner">
+                <div class="item active">
+                    <img src="img/cote_obscur.jpg" alt="Côté obscur" style="height: 288px; width: 600px;">
+                    <div class="carousel-caption">
+                        <h3>Passez du côté obscur de la force</h3>
+                    </div>
+                </div>
+                <div class="item">
+                    <img src="img/cote_lumineux.jpg" alt="Côté lumineux" style="height: 288px; width: 600px;">
+                    <div class="carousel-caption">
+                        <h3>Que la force soit avec vous</h3>
+                    </div>
+                </div>
             </div>
-            <div class="col-xs-1 col-sm-4"></div>
+
+            <!-- Left and right controls -->
+            <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right"></span>
+                <span class="sr-only">Next</span>
+            </a>
         </div>
-        <div>
-            <div class="col-xs-12"><br/></div>
-        </div>
-        <div class="row">
-            <div class="col-xs-1 col-sm-6"></div>
-            <div class="col-xs-10 col-sm-4 used">
-                <p> <?= gettext('J\'ai pas d\'idée') ?></p>
-            </div>
-            <div class="col-xs-1 col-sm-2"></div>
-        </div>
-        <div>
-            <div class="col-xs-12"><br/></div>
-        </div>
-        <div class="row">
-            <div class="col-xs-1 col-sm-1"></div>
-            <div class="col-xs-10 col-sm-4 used">
-                <p>Qu'est ce qui est jaune et qui attend ?</p>
-            </div>
-            <div class="col-xs-1 col-sm-7"></div>
-        </div>
-        <div>
-            <div class="col-xs-12"><br/></div>
-        </div>
-        <div class="row">
-            <div class="col-xs-1 col-sm-5"></div>
-            <div class="col-xs-10 col-sm-4 used">
-                <p>Jonathan</p>
-            </div>
-            <div class="col-xs-1 col-sm-3"></div>
-        </div>
-        <div>
-            <div class="col-xs-12"><br/></div>
-        </div>
-        <div class="row">
-            <div class="col-xs-1 col-sm-2"></div>
-            <div class="col-xs-10 col-sm-4 used">
-                <p>Jaune attend</p>
-            </div>
-            <div class="col-xs-1 col-sm-6"></div>
-        </div>
-        <div>
-            <div class="col-xs-12"><br/></div>
-        </div>
-        <div class="row">
-            <div class="col-xs-1 col-sm-1"></div>
-            <div class="col-xs-4 col-sm-4 used">
-                <p>ptdr</p>
-            </div>
-            <div class="col-xs-2 col-sm-2"></div>
-            <div class="col-xs-4 col-sm-4 used">
-                <p>lol</p>
-            </div>
-            <div class="col-xs-1 col-sm-1"></div>
-        </div>
-        <div>
-            <div class="col-xs-12"><br/></div>
-        </div>
-        <div class="row">
-            <div class="col-xs-1 col-sm-6"></div>
-            <div class="col-xs-10 col-sm-4 used">
-                <p>Trop des barres</p>
-            </div>
-            <div class="col-xs-1 col-sm-2"></div>
-        </div>
+    </div>
+    <div id="presentation">
+        <p>
+            <?php echo gettext('Bonjour et bienvenue sur le Best Sith Ever, votre site de traduction préféré. Ici, vous pourrez traduire vos textes grâce à la puissance du côté obscur.
+    Nous sommes Hugo Fasone, Kévin Falco, Léo Ferrer-Laroche, Théo Hebrard et Anthony Jou, 5 étudiants en DUT d’informatique.
+    Connectez-vous pour profiter de nos pouvoirs sur la force de manière illimitée, ou devenez un membre premium pour nous aider à les étendre !'); ?>
+            <br/> <?php echo gettext('Et que la force soit avec vous!') ?> <br/>
+        </p>
     </div>
 <?php fin_page() ?>

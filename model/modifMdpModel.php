@@ -9,7 +9,7 @@ function modifMdp($email, $nouveau_mdp)
 {
     $dbLink = db_connect();
 
-    $query = 'UPDATE user SET motdepasse = \'' . $nouveau_mdp . '\'' . ' WHERE email = ' . '\'' . $email . '\'';
+    $query = 'UPDATE user SET motdepasse = \'' . $dbLink->real_escape_string ($nouveau_mdp) . '\'' . ' WHERE email = ' . '\'' . $dbLink->real_escape_string ($email) . '\'';
 
     if (!$dbResult = mysqli_query($dbLink, $query))
     {

@@ -1,17 +1,19 @@
 <?php
-    require("utils.inc.php");
+require('../model/trad.php');
+require('utils.inc.php');
 
-    if ($_GET['step'] == 'ERROR_MDP')
-    {
+if (isset($_GET['step'])) {
+    if ($_GET['step'] == 'ERROR_MDP') {
         $message_erreur = 'Erreur de mot de passe.';
-    }
-    else if ($_GET['step'] == 'ERROR_EMAIL')
-    {
+    } else if ($_GET['step'] == 'ERROR_EMAIL') {
         $message_erreur = 'Erreur, l\'e-mail n\'existe pas.';
+    } else if ($_GET['step'] == 'VALIDATION') {
+        $message_erreur = 'Erreur, e-mail non-validée.';
     }
-    else
-    {
-        $message_erreur = "";
-    }
+}
+else
+{
+    $message_erreur = '';
+}
 
-    require("../view/connexion.php");
+require("../view/connexion.php");

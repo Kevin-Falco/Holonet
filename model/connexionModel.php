@@ -4,7 +4,7 @@ function connexion($email)
 {
     $dbLink = db_connect();
 
-    $query = 'SELECT * FROM user WHERE email = ' . '\'' . $email . '\'';
+    $query = 'SELECT * FROM user WHERE email = ' . '\'' . $dbLink->real_escape_string ($email) . '\'';
 
     if(!$dbResult = mysqli_query($dbLink, $query))
     {
