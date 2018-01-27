@@ -5,78 +5,88 @@
  * Date: 24/01/2018
  * Time: 14:53
  */
-    session_start();
+session_start();
 
-    $action = $_POST['action'];
+$action = $_POST['action'];
 
-    if($action == 'Traduire')
-    {
-        if(isset($_COOKIE['tempotrad'])){
-            $_SESSION['non_connecté'] = 'Vous n\'etes pas connectés, 
+if($action == 'Traduire')
+{
+    if(isset($_COOKIE['tempotrad'])){
+        $_SESSION['non_connecté'] = 'Vous n\'etes pas connectés, 
             vous êtes limité à une traduction toutes les 10 minutes';
-            header('Location: page1.php');
-            exit();
-        }
-        if(!isset($_SESSION['categorie']))
-            setcookie('tempotrad', '10 minutes', time() + 60*10);
+        header('Location: page1.php');
+        exit();
+    }
+    if(!isset($_SESSION['categorie']))
+        setcookie('tempotrad', '10 minutes', time() + 60*10);
 
 
-        $dbHost = 'mysql-bestsithever.alwaysdata.net';
-        $dbLogin = '149556_holoadmin';
-        $dbPass = 'kyloben';
+    $dbHost = 'mysql-bestsithever.alwaysdata.net';
+    $dbLogin = '149556_holoadmin';
+    $dbPass = 'kyloben';
 
-        $dbBd = 'bestsithever_holocron';
+    $dbBd = 'bestsithever_holocron';
 
-        $dbLink = mysqli_connect($dbHost, $dbLogin, $dbPass)
-        or die('Erreur de connexion dans la base : ' . mysqli_error($dbLink));
+    $dbLink = mysqli_connect($dbHost, $dbLogin, $dbPass)
+    or die('Erreur de connexion dans la base : ' . mysqli_error($dbLink));
 
-        mysqli_select_db($dbLink, $dbBd)
-        or die('Erreur dans la sélection de la base : ' . mysqli_error($dbLink));
+    mysqli_select_db($dbLink, $dbBd)
+    or die('Erreur dans la sélection de la base : ' . mysqli_error($dbLink));
 
-        $mot= $dbLink->real_escape_string ($_POST['mot']);
-        $langue= $dbLink->real_escape_string ($_POST['lang']);
+    $mot= $dbLink->real_escape_string ($_POST['mot']);
+    $langue= $dbLink->real_escape_string ($_POST['lang']);
 
-        if ($langue == 'francais') {$query = 'SELECT * FROM traduction WHERE fr =\'' . $mot . '\'';}
-        else {$query = 'SELECT * FROM traduction WHERE en =\'' . $mot . '\'';}
-
-        if(!$dbResult = mysqli_query($dbLink, $query))
+    if ($langue == 'francais')
+    {
+        if($_SESSION['categorie'] == 'premium')
         {
-            echo 'Erreur dela requête<br/>';
-            //Type erreur
-            echo 'Erreur : ' . mysqli_error($dbLink) . '<br/>';
-            //Affiche requête envoyée
-            echo 'Requête : ' . $query . '<br/>';
-            exit();
-
+            $query = "SELECT * FROM traduction WHERE MATCH(en) AGAINST ('".$mot."')";
         }
         else
         {
-            if (mysqli_num_rows($dbResult) == 0)
+            $query = 'SELECT * FROM traduction WHERE fr =\'' . $mot . '\'';
+        }
+    }
+    else {$query = 'SELECT * FROM traduction WHERE en =\'' . $mot . '\'';}
+
+    if(!$dbResult = mysqli_query($dbLink, $query))
+    {
+        echo 'Erreur dela requête<br/>';
+        //Type erreur
+        echo 'Erreur : ' . mysqli_error($dbLink) . '<br/>';
+        //Affiche requête envoyée
+        echo 'Requête : ' . htmlspecialchars($query) . '<br/>';
+        exit();
+
+    }
+    else
+    {
+        if (mysqli_num_rows($dbResult) == 0)
+        {
+            $_SESSION['trad_sentence'] = 'Le mot demandé n\'a pas encore été traduit.';
+            header('Location: page1.php');
+            exit();
+        }
+
+        if($dbRow = mysqli_fetch_assoc($dbResult))
+        {
+            if ($langue == 'francais')
             {
-                $_SESSION['trad_sentence'] = 'Le mot demandé n\'a pas encore été traduit.';
+                $_SESSION['trad_sentence'] = ' Le mot français ' . $mot . ' signifie '
+                    . $dbRow['en'] . ' en anglais.';
+
                 header('Location: page1.php');
                 exit();
             }
-
-            if($dbRow = mysqli_fetch_assoc($dbResult))
+            else
             {
-                if ($langue == 'francais')
-                {
-                    $_SESSION['trad_sentence'] = ' Le mot français ' . $mot . ' signifie '
-                        . $dbRow['en'] . ' en anglais.';
-
-                    header('Location: page1.php');
-                    exit();
-                }
-                else
-                {
-                    $_SESSION['trad_sentence'] = ' Le mot anglais ' . $mot . ' signifie '
-                        . $dbRow['fr'] . ' en français.';
-                    header('Location: page1.php');
-                    exit();
-                }
+                $_SESSION['trad_sentence'] = ' Le mot anglais ' . $mot . ' signifie '
+                    . $dbRow['fr'] . ' en français.';
+                header('Location: page1.php');
+                exit();
             }
         }
     }
+}
 
 ?>

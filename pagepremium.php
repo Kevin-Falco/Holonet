@@ -28,7 +28,7 @@ $pseudo = $dbLink->real_escape_string ($_SESSION['pseudo']);
 ?>
 <form action="pagepremium-processing.php" method="post">
     Détecter la langue d'un mot : <br>
-    <input type="text" name="mot"><?= $_SESSION['detect']; $_SESSION['detect'] = ''?><br>
+    <input type="text" name="mot"><?= htmlspecialchars($_SESSION['detect']); $_SESSION['detect'] = ''?><br>
     <input type="submit" name="action" value="Détecter"><br>
 </form>
 
@@ -44,7 +44,7 @@ $pseudo = $dbLink->real_escape_string ($_SESSION['pseudo']);
 
 <?php
 if(isset($_SESSION['demande_reussie']))
-    echo $_SESSION['demande_reussie']; $_SESSION['demande_reussie'] = '';
+    echo htmlspecialchars($_SESSION['demande_reussie']); $_SESSION['demande_reussie'] = '';
 
 $query = 'SELECT * FROM traduction WHERE pseudo =\'' . $pseudo . '\' AND
     etat = \'en cours\'';
@@ -54,15 +54,15 @@ if(!$dbResult = mysqli_query($dbLink, $query))
     //Type erreur
     echo 'Erreur : ' . mysqli_error($dbLink) . '<br/>';
     //Affiche requête envoyée
-    echo 'Requête : ' . $query . '<br/>';
+    echo 'Requête : ' . htmlspecialchars($query) . '<br/>';
     exit();
 }
 echo 'Demandes de traductions en cours : <br> ';
 while($dbRow = mysqli_fetch_assoc($dbResult)){
     if(empty($dbRow['fr']))
-        echo 'Demande de traduction du mot anglais ' . $dbRow['en'] . ' en français <br> ';
+        echo 'Demande de traduction du mot anglais ' . htmlspecialchars($dbRow['en']) . ' en français <br> ';
     else
-        echo 'Demande de traduction du mot français ' . $dbRow['fr'] . ' en anglais <br> ';
+        echo 'Demande de traduction du mot français ' . htmlspecialchars($dbRow['fr']) . ' en anglais <br> ';
 }
 
 $query = 'SELECT * FROM traduction WHERE pseudo =\'' . $pseudo . '\' AND
@@ -74,15 +74,15 @@ if(!$dbResult = mysqli_query($dbLink, $query))
     //Type erreur
     echo 'Erreur : ' . mysqli_error($dbLink) . '<br/>';
     //Affiche requête envoyée
-    echo 'Requête : ' . $query . '<br/>';
+    echo 'Requête : ' . htmlspecialchars($query) . '<br/>';
     exit();
 }
 echo '<br> <br>Demandes de traductions refusées : <br> ';
 while($dbRow = mysqli_fetch_assoc($dbResult)){
     if(empty($dbRow['fr']))
-        echo 'Demande de traduction du mot anglais ' . $dbRow['en'] . ' en français <br> ';
+        echo 'Demande de traduction du mot anglais ' . htmlspecialchars($dbRow['en']) . ' en français <br> ';
     else
-        echo 'Demande de traduction du mot français ' . $dbRow['fr'] . ' en anglais <br> ';
+        echo 'Demande de traduction du mot français ' . htmlspecialchars($dbRow['fr']) . ' en anglais <br> ';
 }
 
 
@@ -95,12 +95,12 @@ if(!$dbResult = mysqli_query($dbLink, $query))
     //Type erreur
     echo 'Erreur : ' . mysqli_error($dbLink) . '<br/>';
     //Affiche requête envoyée
-    echo 'Requête : ' . $query . '<br/>';
+    echo 'Requête : ' . htmlspecialchars($query) . '<br/>';
     exit();
 }
 echo '<br> <br>Demandes de traductions acceptées : <br> ';
 while($dbRow = mysqli_fetch_assoc($dbResult)){
-    echo 'Le mot anglais ' . $dbRow['en'] . ' correspond au mot français ' . $dbRow['fr'] . '<br> ';
+    echo 'Le mot anglais ' . htmlspecialchars($dbRow['en']) . ' correspond au mot français ' . htmlspecialchars($dbRow['fr']) . '<br> ';
 }
 
 

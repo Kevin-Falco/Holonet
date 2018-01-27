@@ -19,11 +19,11 @@
 <div class="profil">
     <label>Pseudo <?= strtoupper($_SESSION['categorie']) ?></label><br/>
 
-    <?= $_SESSION['pseudo'] ?>
+    <?= htmlspecialchars($_SESSION['pseudo']) ?>
 
     <br/><br/><label>Email</label><br/>
 
-    <?= $_SESSION['email'] ?>
+    <?= htmlspecialchars($_SESSION['email']) ?>
 
     <br/><br/><input type="button" value="Modifier son mot de passe" onClick="javascript:document.location.href='modifMdp.php'" /><br/><br/>
 

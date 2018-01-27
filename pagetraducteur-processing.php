@@ -37,7 +37,7 @@ if($_POST['action'] == 'Envoyer'){
         //Type erreur
         echo 'Erreur : ' . mysqli_error($dbLink) . '<br/>';
         //Affiche requête envoyée
-        echo 'Requête : ' . $query . '<br/>';
+        echo 'Requête : ' . htmlspecialchars($query) . '<br/>';
         exit();
     }
     $_SESSION['envoi_reussie'] = 'La traduction a bien été ajoutée';
@@ -62,7 +62,7 @@ else if($_POST['action'] == 'Refuser'){
         // Affiche le type d'erreur.
         echo 'Erreur : ' . mysqli_error($dbLink) . '<br/>';
         // Affiche la requête envoyée.
-        echo 'Requête : ' . $query . '<br/>';
+        echo 'Requête : ' . htmlspecialchars($query) . '<br/>';
         exit();
     }
 }
@@ -87,7 +87,7 @@ else if($_POST['action'] == 'Changer la traduction en'){
         // Affiche le type d'erreur.
         echo 'Erreur : ' . mysqli_error($dbLink) . '<br/>';
         // Affiche la requête envoyée.
-        echo 'Requête : ' . $query . '<br/>';
+        echo 'Requête : ' . htmlspecialchars($query) . '<br/>';
         exit();
     }
 }else if($_POST['action'] == 'Valider'){
@@ -104,7 +104,7 @@ else if($_POST['action'] == 'Changer la traduction en'){
         // Affiche le type d'erreur.
         echo 'Erreur : ' . mysqli_error($dbLink) . '<br/>';
         // Affiche la requête envoyée.
-        echo 'Requête : ' . $query . '<br/>';
+        echo 'Requête : ' . htmlspecialchars($query) . '<br/>';
         exit();
     }
 }
