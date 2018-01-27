@@ -45,10 +45,10 @@
 </div>
 <div id="presentation">
     <p>
-        <?= gettext('Bonjour et bienvenue sur le Best Sith Ever, votre site de traduction préféré. Ici, vous pourrez traduire vos textes grâce à la puissance du côté obscur.
+        <?php echo gettext('Bonjour et bienvenue sur le Best Sith Ever, votre site de traduction préféré. Ici, vous pourrez traduire vos textes grâce à la puissance du côté obscur.
     Nous sommes Hugo Fasone, Kévin Falco, Léo Ferrer-Laroche, Théo Hebrard et Anthony Jou, 5 étudiants en DUT d’informatique.
     Connectez-vous pour profiter de nos pouvoirs sur la force de manière illimitée, ou devenez un membre premium pour nous aider à les étendre !'); ?>
-        <br/> <?= gettext('Et que la force soit avec vous!') ?> <br/>
+        <br/> <?php echo gettext('Et que la force soit avec vous!') ?> <br/>
     </p>
 </div>
 <?php

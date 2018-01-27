@@ -37,7 +37,7 @@ if($_POST['action'] == 'Demander'){
         //Type erreur
         echo 'Erreur : ' . mysqli_error($dbLink) . '<br/>';
         //Affiche requête envoyée
-        echo 'Requête : ' . htmlspecialchars($query) . '<br/>';
+        echo 'Requête : ' . $query . '<br/>';
         exit();
 
     }
@@ -55,7 +55,7 @@ else if($_POST['action'] == 'Détecter'){
         //Type erreur
         echo 'Erreur : ' . mysqli_error($dbLink) . '<br/>';
         //Affiche requête envoyée
-        echo 'Requête : ' . htmlspecialchars($query) . '<br/>';
+        echo 'Requête : ' . $query . '<br/>';
         exit();
 
     }

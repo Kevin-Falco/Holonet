@@ -21,7 +21,7 @@ or die('Erreur dans la sélection de la base : ' . mysqli_error($dbLink));
 
 $trad = $dbLink->real_escape_string ($_POST['trad']);
 $mot = $dbLink->real_escape_string ($_POST['mot']);
-$id = intval($_POST('id'));
+$id = $dbLink->real_escape_string ($_POST['id']);
 
 if($_POST['action'] == 'Envoyer'){
     if($_POST['lang'] ==  'francais')
@@ -106,30 +106,6 @@ else if($_POST['action'] == 'Changer la traduction en'){
         // Affiche la requête envoyée.
         echo 'Requête : ' . htmlspecialchars($query) . '<br/>';
         exit();
-    }
-}else if (($_POST['action'] == 'Export')){
-    $_SESSION['langexport'] = $_POST['langexport'];
-    $filename = "lang/" . $_POST['langexport'] . ".po";
-    $handle = fopen($filename, 'w');
-    $header = "msgid \"\"
- msgstr \"\"
- \"Project-Id-Version: \\n\"
- \"POT-Creation-Date: \\n\"
- \"PO-Revision-Date: \\n\"
- \"Last-Translator: \\n\"
- \"Language-Team: \\n\"
- \"Language: " . $_POST['langexport'] . "\\n\"
- \"MIME-Version: 1.0\\n\"
- \"Content-Type: text/plain; charset=UTF-8\\n\"
- \"Content-Transfer-Encoding: 8bit\\n\"\n\n";
-    fwrite ($handle, $header);
-    $traductions = mysqli_query($dbLink, 'SELECT fr, en FROM traduction');
-    while ($row = mysqli_fetch_assoc($traductions)){
-        if ($_POST['langexport'] == 'fr')
-            $trad = 'msgid "' . $row['en'] . "\"\nmsgstr \"" . $row['fr'] . "\"\n\n";
-        elseif ($_POST['langexport'] == 'en')
-            $trad = 'msgid "' . $row['fr'] . "\"\nmsgstr \"" . $row['en'] . "\"\n\n";
-        fwrite ($handle, $trad);
     }
 }
 
