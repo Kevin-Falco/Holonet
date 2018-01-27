@@ -18,24 +18,24 @@
 <label class="titre"><?php echo gettext('Inscription'); ?></label>
 <div class="formulaire">
     <form action="testInscription.php" method="post">
-        <label><?php echo gettext('Pseudo'); ?></label><br/>
+        <label><?= gettext('Pseudo'); ?></label><br/>
         <input type="text" name="pseudo" required><br/>
 
-        <label><?php echo gettext('Email'); ?></label><br/>
+        <label><?= gettext('Email'); ?></label><br/>
         <input type="email" name="email" required/><br/>
 
-        <label><?php echo gettext('Mot de passe'); ?></label><br/>
+        <label><?= gettext('Mot de passe'); ?></label><br/>
         <input type="password" name="mdp" required/><br/>
 
-        <label><?php echo gettext('Vérification mot de passe'); ?></label><br/>
+        <label><?= gettext('Vérification mot de passe'); ?></label><br/>
         <input type="password" name="verifmdp" required/><br/>
 
-        <label><?php echo gettext('Status'); ?></label><br/>
-        <input type="radio" name="status"  value="standard" required/><?php echo gettext('Standard'); ?><br/>
-        <input type="radio" name="status"  value="premium" required/><?php echo gettext('Premium'); ?><br/>
-        <input type="radio" name="status"  value="traducteur" required/><?php echo gettext('Traducteur'); ?><br/>
+        <label><?= gettext('Status'); ?></label><br/>
+        <input type="radio" name="status"  value="standard" required/><?= gettext('Standard'); ?><br/>
+        <input type="radio" name="status"  value="premium" required/><?= gettext('Premium'); ?><br/>
+        <input type="radio" name="status"  value="traducteur" required/><?= gettext('Traducteur'); ?><br/>
 
-        <label><?php echo gettext('Conditions générales'); ?></label> : <input type="checkbox" required/><br/>
+        <label><?= gettext('Conditions générales'); ?></label> : <input type="checkbox" required/><br/>
         <input type="submit" name="action" value="Valider"/><br/>
     </form>
 </div>

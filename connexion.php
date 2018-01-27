@@ -17,19 +17,19 @@
 
     barre_Navigation(4);
 ?>
-<label class="titre"><?php echo gettext('Connexion') ?></label>
+<label class="titre"><?= gettext('Connexion') ?></label>
 <form action="testConnexion.php" method="post">
-    <label><?php echo gettext('Email') ?></label><br/>
+    <label><?= gettext('Email') ?></label><br/>
     <input type="text" name="email"><br/>
 
-    <label><?php echo gettext('Mot de passe') ?></label><br/>
+    <label><?= gettext('Mot de passe') ?></label><br/>
     <input type="password" name="mdp"/><br/>
 
     <input type="submit" name="action" value="connexion"/><br/>
 
 </form>
-<a href="mdp_oublie.php"><?php echo gettext('Mot de passe oublié ?') ?></a>
-<a href="inscription.php"><?php echo gettext('S\'inscrire') ?></a>
+<a href="mdp_oublie.php"><?= gettext('Mot de passe oublié ?') ?></a>
+<a href="inscription.php"><?= gettext('S\'inscrire') ?></a>
 <?php
     fin_page();
 ?>
