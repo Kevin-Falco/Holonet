@@ -19,13 +19,13 @@
 ?>
 <div class="formulaire">
     <form action="testModifMdp.php" method="post">
-        <label>Ancien Mot de passe</label><br/>
+        <label><?= gettext('Ancien Mot de passe')?></label><br/>
         <input type="password" name="ancien_mdp" required><br/>
 
-        <label>Nouveau Mot de passe</label><br/>
+        <label><?= gettext('Nouveau Mot de passe')?></label><br/>
         <input type="password" name="nouveau_mdp" required/><br/>
 
-        <label>Vérification nouveau mot de passe</label><br/>
+        <label><?= gettext('Vérification nouveau mot de passe')?></label><br/>
         <input type="password" name="verif_nouveau_mdp" required/><br/>
 
         <input type="submit" name="action" value="Valider"/><br/>
