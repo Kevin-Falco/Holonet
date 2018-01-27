@@ -21,7 +21,7 @@ or die('Erreur dans la sélection de la base : ' . mysqli_error($dbLink));
 
 $trad = $dbLink->real_escape_string ($_POST['trad']);
 $mot = $dbLink->real_escape_string ($_POST['mot']);
-$id = intval($_POST('id'));
+$id = intval($_POST['id']);
 
 if($_POST['action'] == 'Envoyer'){
     if($_POST['lang'] ==  'francais')
