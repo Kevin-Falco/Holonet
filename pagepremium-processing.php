@@ -63,9 +63,9 @@ else if($_POST['action'] == 'Détecter'){
         $_SESSION['detect'] = 'Inconnu';
     $dbRow = mysqli_fetch_assoc($dbResult);
     if($_POST['mot'] == $dbRow['fr'] )
-        $_SESSION['detect'] =  'français<br>';
+        $_SESSION['detect'] =  'français';
     else if($_POST['mot'] == $dbRow['en'] )
-        $_SESSION['detect'] =  'anglais<br>';
+        $_SESSION['detect'] =  'anglais';
     header('Location: pagepremium.php');
     exit();
 }
