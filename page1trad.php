@@ -9,10 +9,16 @@
 
     $action = $_POST['action'];
 
-
-
     if($action == 'Traduire')
     {
+        if(isset($_COOKIE['tempotrad'])){
+            $_SESSION['non_connecté'] = 'Vous n\'etes pas connectés, 
+            vous êtes limité à une traduction toutes les 10 minutes';
+            header('Location: page1.php');
+            exit();
+        }
+        if(!isset($_SESSION['categorie']))
+            setcookie('tempotrad', '10 minutes', time() + 60*10);
         $mot= $_POST['mot'];
         $langue= $_POST['lang'];
 
@@ -29,7 +35,7 @@
         or die('Erreur dans la sélection de la base : ' . mysqli_error($dbLink));
 
         if ($langue == 'francais') {$query = 'SELECT * FROM traduction WHERE fr =\'' . $mot . '\'';}
-        else {$query = 'SELECT * FROM user WHERE en =\'' . $mot . '\'';}
+        else {$query = 'SELECT * FROM traduction WHERE en =\'' . $mot . '\'';}
 
         if(!$dbResult = mysqli_query($dbLink, $query))
         {

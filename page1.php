@@ -27,11 +27,14 @@ debut_page();
     </form>
 
 <?php
+if(isset($_SESSION['trad_sentence']))
     echo $_SESSION['trad_sentence']; $_SESSION['trad_sentence'] = '';
+if(isset($_SESSION['non_connecté']))
+    echo $_SESSION['non_connecté']; $_SESSION['non_connecté'] = '';
 
     if (isset($_SESSION['categorie']) &&
         ($_SESSION['categorie'] == 'premium' || $_SESSION['categorie'] == 'traducteur' || $_SESSION['categorie'] == 'admin' )) {
-        echo '<a href="pagepremium.php">Page Premium</a><br>';
+        echo '<a href="pagepremium.php"><br>Page Premium</a><br>';
         if($_SESSION['categorie'] == 'traducteur' || $_SESSION['categorie'] == 'admin')
             echo '<a href="pagetraducteur.php">Page Traducteur</a><br>';
 

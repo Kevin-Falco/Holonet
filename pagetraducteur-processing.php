@@ -35,8 +35,6 @@ if($_POST['action'] == 'Envoyer'){
         exit();
     }
     $_SESSION['envoi_reussie'] = 'La traduction a bien été ajoutée';
-    header('Location: pagetraducteur.php');
-    exit();
 }
 else if($_POST['action'] == 'Résoudre') {
     $_SESSION['request'] = '';
@@ -49,8 +47,6 @@ else if($_POST['action'] == 'Résoudre') {
         $_SESSION['mot1'] = $_POST['fr'];
         $_SESSION['selected'] = 'fr';
     }
-    header('Location: pagetraducteur.php');
-    exit();
 }
 else if($_POST['action'] == 'Refuser'){
     $query = 'UPDATE traduction SET etat = \'refusé\' WHERE id = \'' . $_POST['id'] . '\'';
@@ -63,6 +59,49 @@ else if($_POST['action'] == 'Refuser'){
         echo 'Requête : ' . $query . '<br/>';
         exit();
     }
-    header('Location: pagetraducteur.php'); 
-    exit();
 }
+else if($_POST['action'] == 'Changer la traduction fr'){
+    $_SESSION['request'] = '';
+    $_SESSION['tradid'] = $_POST['id'];
+    $_SESSION['mot1'] = $_POST['en'];
+    $_SESSION['mot2'] = $_POST['fr'];
+    $_SESSION['selected'] = 'en';
+}
+else if($_POST['action'] == 'Changer la traduction en'){
+    $_SESSION['request'] = '';
+    $_SESSION['tradid'] = $_POST['id'];
+    $_SESSION['mot1'] = $_POST['fr'];
+    $_SESSION['mot2'] = $_POST['en'];
+    $_SESSION['selected'] = 'fr';
+}else if($_POST['action'] == 'Supprimer'){
+    $query = 'DELETE FROM traduction WHERE id = \'' . $_POST['id'] . '\'';
+    if(!($dbResult = mysqli_query($dbLink, $query)))
+    {
+        echo 'Erreur dans requête<br />';
+        // Affiche le type d'erreur.
+        echo 'Erreur : ' . mysqli_error($dbLink) . '<br/>';
+        // Affiche la requête envoyée.
+        echo 'Requête : ' . $query . '<br/>';
+        exit();
+    }
+}else if($_POST['action'] == 'Valider'){
+    if($_POST['lang'] == 'francais'){
+        $query = 'UPDATE traduction SET en = \'' . $_POST['trad'] . '\', etat=\'accepté\' WHERE id = \'' . $_SESSION['tradid'] . '\'';
+    }
+    else {
+        $query = 'UPDATE traduction SET fr = \'' . $_POST['trad'] . '\', etat=\'accepté\' WHERE id = \'' . $_SESSION['tradid'] . '\'';
+    }
+
+    if(!($dbResult = mysqli_query($dbLink, $query)))
+    {
+        echo 'Erreur dans requête<br />';
+        // Affiche le type d'erreur.
+        echo 'Erreur : ' . mysqli_error($dbLink) . '<br/>';
+        // Affiche la requête envoyée.
+        echo 'Requête : ' . $query . '<br/>';
+        exit();
+    }
+}
+
+header('Location: pagetraducteur.php');
+exit();

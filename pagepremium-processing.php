@@ -42,3 +42,26 @@ if($_POST['action'] == 'Demander'){
     exit();
 
 }
+else if($_POST['action'] == 'Détecter'){
+    $query = 'SELECT * FROM traduction WHERE en =\'' . $_POST['mot'] .
+        '\' OR fr=\'' . $_POST['mot'] . '\'';
+    if(!$dbResult = mysqli_query($dbLink, $query))
+    {
+        echo 'Erreur dela requête<br/>';
+        //Type erreur
+        echo 'Erreur : ' . mysqli_error($dbLink) . '<br/>';
+        //Affiche requête envoyée
+        echo 'Requête : ' . $query . '<br/>';
+        exit();
+
+    }
+    if(!mysqli_num_rows($dbResult))
+        $_SESSION['detect'] = 'Inconnu';
+    $dbRow = mysqli_fetch_assoc($dbResult);
+    if($_POST['mot'] == $dbRow['fr'] )
+        $_SESSION['detect'] =  'français<br>';
+    else if($_POST['mot'] == $dbRow['en'] )
+        $_SESSION['detect'] =  'anglais<br>';
+    header('Location: pagepremium.php');
+    exit();
+}

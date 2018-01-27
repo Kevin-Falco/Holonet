@@ -1,11 +1,11 @@
 <?php
-session_start();
+include 'utils.inc.php';
 if($_SESSION['categorie'] != 'premium' && $_SESSION['categorie'] != 'traducteur' && $_SESSION['categorie'] != 'admin' ){
     header('Location: page1.php');
     exit();
 }
 
-include 'utils.inc.php';
+
 
 $dbHost = 'mysql-bestsithever.alwaysdata.net';
 $dbLogin = '149556_holoadmin';
@@ -24,6 +24,11 @@ debut_page();
 barre_Navigation();
 
 ?>
+<form action="pagepremium-processing.php" method="post">
+    Détecter la langue d'un mot : <br>
+    <input type="text" name="mot"><?php echo $_SESSION['detect']; $_SESSION['detect'] = ''?><br>
+    <input type="submit" name="action" value="Détecter"><br>
+</form>
 
 <form action="pagepremium-processing.php" method="post">
     Mot à demander : <br>
@@ -36,6 +41,7 @@ barre_Navigation();
 </form>
 
 <?php
+if(isset($_SESSION['demande_reussie']))
     echo $_SESSION['demande_reussie']; $_SESSION['demande_reussie'] = '';
 
 $query = 'SELECT * FROM traduction WHERE pseudo =\'' . $_SESSION['pseudo'] . '\' AND

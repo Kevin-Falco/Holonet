@@ -1,11 +1,10 @@
 <?php
-session_start();
+include 'trad.php';
+include 'utils.inc.php';
 if($_SESSION['categorie'] != 'traducteur' && $_SESSION['categorie'] != 'admin' ){
     header('Location: page1.php');
     exit();
 }
-
-include 'utils.inc.php';
 
 $dbHost = 'mysql-bestsithever.alwaysdata.net';
 $dbLogin = '149556_holoadmin';
@@ -35,7 +34,9 @@ if(!isset($_SESSION['request'])){
     <input type="text" name="trad"><br>
     <input type="submit" name="action" value="Envoyer"><br>
 </form>
-<?php }
+<?php
+    unset($_SESSION['request']);
+}
 else {
     ?>
     <form action="pagetraducteur-processing.php" method="post">
@@ -51,6 +52,7 @@ else {
 
 <?php
 }
+if(isset($_SESSION['envoi_reussie']))
 echo $_SESSION['envoi_reussie']; $_SESSION['envoi_reussie'] = '';
 
 $query = 'SELECT * FROM traduction WHERE etat = \'en cours\'';
@@ -87,16 +89,16 @@ if(!$dbResult = mysqli_query($dbLink, $query))
     echo 'Requête : ' . $query . '<br/>';
     exit();
 }
-echo '<br>Traductions en base de données : <br> ';
+echo '<br>Traductions en base de données acceptées : <br> ';
 while($dbRow = mysqli_fetch_assoc($dbResult)){
     echo '<form action="pagetraducteur-processing.php" method="post"> ';
-    echo 'Traduction du mot français ' . $dbRow['fr'] . ' en anglais :  ' . $dbRow['en']  . '<br> ';
+    echo 'Traduction du mot français ' . $dbRow['fr'] . ' en anglais :  ' . $dbRow['en'] . '<br>';
     echo '<input type="submit" name="action" value="Changer la traduction fr" >
             <input type="submit" name="action" value="Changer la traduction en">
             <input type="submit" name="action" value="Supprimer">
             <input type="hidden" name="id" value="' . $dbRow['id']  .'">
             <input type="hidden" name="fr" value="' . $dbRow['fr']  .'">
-            <input type="hidden" name="en" value="' . $dbRow['en']  .'"></form>';
+            <input type="hidden" name="en" value="' . $dbRow['en']  .'"></form><pre></pre>';
 }
 
 $query = 'SELECT * FROM traduction WHERE etat = \'refusé\'';
