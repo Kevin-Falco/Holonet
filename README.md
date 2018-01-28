@@ -1,4 +1,4 @@
-#PROJET HOLONET
+#Holonet
 
 Nous sommes l'équipe KALTH composée exclusivement de personnes du groupe 2 de 2ème année dont : 
 
